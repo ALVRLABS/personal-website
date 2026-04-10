@@ -1592,4 +1592,20 @@ const counterObserver = new IntersectionObserver((entries) => {
           const accent = el.querySelector('.accent');
           const accentHTML = accent ? accent.outerHTML : '';
           el.innerHTML = Math.floor(current) + accentHTML;
-          requestAnimationFrame(updateCoun
+          requestAnimationFrame(updateCounter);
+        }
+        updateCounter();
+      }
+      counterObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+
+counters.forEach(el => {
+  el.dataset.original = el.innerHTML;
+  counterObserver.observe(el);
+});
+
+</script>
+</body>
+</html>
