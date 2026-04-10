@@ -1418,15 +1418,15 @@ footer {
     <form class="contact-form reveal" onsubmit="handleSubmit(event)">
       <div class="form-group">
         <label>Your Name</label>
-        <input type="text" placeholder="John Doe" required>
+        <input type="text" name="name" placeholder="John Doe" required>
       </div>
       <div class="form-group">
         <label>Email</label>
-        <input type="email" placeholder="john@example.com" required>
+        <input type="email" name="email" placeholder="john@example.com" required>
       </div>
       <div class="form-group">
         <label>Inquiry Type</label>
-        <select required>
+        <select name="inquiry" required>
           <option value="" disabled selected>Select one...</option>
           <option>Hiring / Career Opportunity</option>
           <option>Consultancy</option>
@@ -1437,7 +1437,7 @@ footer {
       </div>
       <div class="form-group">
         <label>Message</label>
-        <textarea placeholder="Tell me about your project or opportunity..." required></textarea>
+        <textarea name="message" placeholder="Tell me about your project or opportunity..." required></textarea>
       </div>
       <button type="submit" class="btn-primary" style="align-self:flex-start;">
         Send Message
@@ -1478,7 +1478,7 @@ footer {
         <div class="contact-icon">📧</div>
         <div>
           <div class="contact-label">Email</div>
-          <div class="contact-value"><a href="/cdn-cgi/l/email-protection#4c24292020230c2d203a25222d393e29202025393f622f2321"><span class="__cf_email__" data-cfemail="0e666b6262614e6f627867606f7b7c6b6262677b7d206d6163">[email&#160;protected]</span></a></div>
+          <div class="contact-value"><a href="mailto:alvinaurelius13@gmail.com">alvinaurelius13@gmail.com</a></div>
         </div>
       </div>
     </div>
@@ -1494,7 +1494,7 @@ footer {
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 // ─── Cursor Glow ───
 const glow = document.getElementById('cursorGlow');
 let mouseX = 0, mouseY = 0, glowX = 0, glowY = 0;
@@ -1557,14 +1557,39 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
 // ─── Form Submit ───
 function handleSubmit(e) {
   e.preventDefault();
-  const btn = e.target.querySelector('button[type="submit"]');
-  btn.innerHTML = 'Message Sent! ✓';
-  btn.style.background = '#2d6a4f';
-  setTimeout(() => {
-    btn.innerHTML = 'Send Message <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>';
-    btn.style.background = '';
-    e.target.reset();
-  }, 3000);
+  const form = e.target;
+  const btn = form.querySelector('button[type="submit"]');
+  const data = new FormData(form);
+  btn.disabled = true;
+  btn.innerHTML = 'Sending...';
+
+  fetch('https://formspree.io/f/mdaprgqj', {
+    method: 'POST',
+    body: data,
+    headers: { 'Accept': 'application/json' }
+  }).then(response => {
+    if (response.ok) {
+      btn.innerHTML = 'Message Sent! ✓';
+      btn.style.background = '#2d6a4f';
+      form.reset();
+    } else {
+      btn.innerHTML = 'Something went wrong';
+      btn.style.background = '#a33';
+    }
+    btn.disabled = false;
+    setTimeout(() => {
+      btn.innerHTML = 'Send Message <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>';
+      btn.style.background = '';
+    }, 3000);
+  }).catch(() => {
+    btn.innerHTML = 'Network error';
+    btn.style.background = '#a33';
+    btn.disabled = false;
+    setTimeout(() => {
+      btn.innerHTML = 'Send Message <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>';
+      btn.style.background = '';
+    }, 3000);
+  });
 }
 
 // ─── Counter Animation ───
