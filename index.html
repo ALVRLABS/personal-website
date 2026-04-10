@@ -483,30 +483,58 @@ nav.scrolled {
 }
 
 .about-image {
-  aspect-ratio: 3/4;
+  aspect-ratio: 4/5;
+  max-width: 360px;
   background: linear-gradient(135deg, var(--bg-card), var(--surface));
-  border-radius: 16px;
+  border-radius: 24px;
   overflow: hidden;
   position: relative;
-  border: 1px solid var(--border);
+  border: 2px solid var(--border);
+  transition: all 0.5s var(--ease-out);
+  cursor: pointer;
 }
 
-.about-image-placeholder {
+.about-image::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 26px;
+  background: linear-gradient(135deg, var(--accent), var(--accent2), var(--gold));
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.5s var(--ease);
+}
+
+.about-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  background: linear-gradient(180deg, transparent 50%, rgba(10,10,15,0.6) 100%);
+  opacity: 0;
+  transition: opacity 0.4s;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.about-image:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+  border-color: transparent;
+}
+
+.about-image:hover::before { opacity: 1; }
+.about-image:hover::after { opacity: 1; }
+
+.about-image img {
   width: 100%;
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  color: var(--text-dim);
-  font-family: var(--font-detail);
-  font-size: 0.8rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  object-fit: cover;
+  transition: transform 0.6s var(--ease-out);
 }
 
-.about-image-placeholder svg { width: 48px; height: 48px; opacity: 0.3; }
+.about-image:hover img { transform: scale(1.05); }
+
 
 .about-bio p {
   font-size: 1.05rem;
@@ -661,17 +689,21 @@ nav.scrolled {
 
 .project-card:first-child .project-cover { height: 320px; }
 
-.project-cover-pattern {
+.project-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s var(--ease-out);
+}
+
+.project-card:hover .project-cover img { transform: scale(1.08); }
+
+.project-cover-overlay {
   position: absolute;
   inset: 0;
-  opacity: 0.08;
-  background-image: repeating-linear-gradient(
-    45deg,
-    transparent,
-    transparent 20px,
-    rgba(255,255,255,0.05) 20px,
-    rgba(255,255,255,0.05) 21px
-  );
+  background: linear-gradient(180deg, transparent 40%, rgba(10,10,15,0.7) 100%);
+  z-index: 1;
+  pointer-events: none;
 }
 
 .project-cover-label {
@@ -1011,7 +1043,7 @@ footer {
   .stat-number { font-size: 2rem; }
   
   .about-grid { grid-template-columns: 1fr; gap: 40px; }
-  .about-image { max-height: 300px; }
+  .about-image { max-width: 280px; max-height: 350px; margin: 0 auto; }
   
   .portfolio-grid { grid-template-columns: 1fr; }
   .project-card:first-child { grid-column: 1; }
@@ -1117,7 +1149,9 @@ footer {
     </p>
   </div>
   
- <img src=https://i.postimg.cc/MZ4MwRCQ/IMG-4463.jpg alt="Alvin Aurellius" style="width:100%;height:100%;object-fit:cover;">
+  <div class="about-grid">
+    <div class="about-image reveal">
+      <img src="https://i.postimg.cc/MZ4MwRCQ/IMG-4463.jpg" alt="Alvin Aurellius">
     </div>
     <div class="about-bio reveal reveal-delay-1">
       <p>
@@ -1201,8 +1235,9 @@ footer {
 
   <div class="portfolio-grid">
     <div class="project-card reveal">
-      <div class="project-cover" style="background: linear-gradient(135deg, #1b3a2a, #2d6a4f 120%);">
-        <div class="project-cover-pattern"></div>
+      <div class="project-cover">
+        <img src="https://i.postimg.cc/65WMRkHY/Bene-x-Amici.png" alt="Bene × Amici Culinary Takeover">
+        <div class="project-cover-overlay"></div>
         <span class="project-cover-label">Featured</span>
       </div>
       <div class="project-body">
@@ -1218,8 +1253,9 @@ footer {
     </div>
     
     <div class="project-card reveal reveal-delay-1">
-      <div class="project-cover" style="background: linear-gradient(135deg, #1b3a2a, #d4a843 130%);">
-        <div class="project-cover-pattern"></div>
+      <div class="project-cover">
+        <img src="https://i.postimg.cc/wBZrQwty/Shoot-4-scaled.jpg" alt="Sunset Garden Festival 2026">
+        <div class="project-cover-overlay"></div>
       </div>
       <div class="project-body">
         <div class="project-title">Sunset Garden Festival 2026</div>
@@ -1232,8 +1268,9 @@ footer {
     </div>
     
     <div class="project-card reveal reveal-delay-2">
-      <div class="project-cover" style="background: linear-gradient(135deg, #0d1b2a, #2d6a4f 140%);">
-        <div class="project-cover-pattern"></div>
+      <div class="project-cover">
+        <img src="https://i.postimg.cc/KY69M4VB/si-dpsks-daily-social-53603-16696.jpg" alt="Daily Social Sunday Brunch">
+        <div class="project-cover-overlay"></div>
       </div>
       <div class="project-body">
         <div class="project-title">Daily Social — Sunday Social Brunch</div>
@@ -1246,8 +1283,9 @@ footer {
     </div>
 
     <div class="project-card reveal reveal-delay-1">
-      <div class="project-cover" style="background: linear-gradient(135deg, #1a1a28, #52b788 130%);">
-        <div class="project-cover-pattern"></div>
+      <div class="project-cover">
+        <img src="https://i.postimg.cc/Dy3TTwwz/DSC08453.jpg" alt="Monkey 47 Bartender Championship">
+        <div class="project-cover-overlay"></div>
       </div>
       <div class="project-body">
         <div class="project-title">Monkey 47 Bartender Championship</div>
@@ -1260,8 +1298,9 @@ footer {
     </div>
 
     <div class="project-card reveal reveal-delay-2">
-      <div class="project-cover" style="background: linear-gradient(135deg, #1b2e3e, #40916c 130%);">
-        <div class="project-cover-pattern"></div>
+      <div class="project-cover">
+        <img src="https://i.postimg.cc/CxZHsSbQ/Easter-2026-Sheraton-Bali-Kuta-Resort1.png" alt="Easter Afternoon Tea at &more by Sheraton">
+        <div class="project-cover-overlay"></div>
       </div>
       <div class="project-body">
         <div class="project-title">&more by Sheraton — Easter Afternoon Tea</div>
@@ -1439,7 +1478,7 @@ footer {
         <div class="contact-icon">📧</div>
         <div>
           <div class="contact-label">Email</div>
-          <div class="contact-value"><a href="mailto:hello@alvinaurellius.com">hello@alvinaurellius.com</a></div>
+          <div class="contact-value"><a href="/cdn-cgi/l/email-protection#4c24292020230c2d203a25222d393e29202025393f622f2321"><span class="__cf_email__" data-cfemail="0e666b6262614e6f627867606f7b7c6b6262677b7d206d6163">[email&#160;protected]</span></a></div>
         </div>
       </div>
     </div>
@@ -1455,7 +1494,7 @@ footer {
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // ─── Cursor Glow ───
 const glow = document.getElementById('cursorGlow');
 let mouseX = 0, mouseY = 0, glowX = 0, glowY = 0;
@@ -1553,18 +1592,4 @@ const counterObserver = new IntersectionObserver((entries) => {
           const accent = el.querySelector('.accent');
           const accentHTML = accent ? accent.outerHTML : '';
           el.innerHTML = Math.floor(current) + accentHTML;
-          requestAnimationFrame(updateCounter);
-        }
-        
-        el.dataset.original = el.innerHTML;
-        updateCounter();
-      }
-      counterObserver.unobserve(el);
-    }
-  });
-}, { threshold: 0.5 });
-
-counters.forEach(c => counterObserver.observe(c));
-</script>
-</body>
-</html>
+          requestAnimationFrame(updateCoun
