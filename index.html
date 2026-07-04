@@ -1,1631 +1,760 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Alvin Aurellius — Hospitality Marketing & Content Creator</title>
-<meta name="description" content="F&B Marketing professional at Sheraton Bali Kuta Resort. Crafting culinary brand stories, digital campaigns, and unforgettable dining experiences in paradise.">
-<meta property="og:title" content="Alvin Aurellius — Hospitality Marketing">
-<meta property="og:description" content="F&B Marketing | Content Creator | Bali, Indonesia">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Alvin Aurellius — Hospitality & F&B Marketing</title>
+<meta name="description" content="Alvin Aurellius — F&B and resort marketing. Brand storytelling, digital campaigns, and creative direction across hospitality." />
+<meta property="og:title" content="Alvin Aurellius — Hospitality & F&B Marketing" />
+<meta property="og:description" content="Brand storytelling, digital campaigns, and creative direction across hospitality." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="assets/hero.webp" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23FAF8F5'/><text x='50' y='68' font-family='Georgia,serif' font-size='58' fill='%231A1A1A' text-anchor='middle'>A</text></svg>" />
 <style>
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
-:root {
-  --bg: #0a0a0f;
-  --bg-card: #12121a;
-  --bg-elevated: #1a1a28;
-  --surface: #22222f;
-  --text: #eaeaf0;
-  --text-muted: #8888a0;
-  --text-dim: #55556a;
-  --accent: #2d6a4f;
-  --accent-glow: rgba(45, 106, 79, 0.18);
-  --accent2: #40916c;
-  --accent-light: #52b788;
-  --navy: #1b3a2a;
-  --gold: #d4a843;
-  --border: rgba(255,255,255,0.06);
-  --font-display: 'Syne', sans-serif;
-  --font-body: 'Outfit', sans-serif;
-  --font-detail: 'DM Sans', sans-serif;
-  --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-html { scroll-behavior: smooth; }
-
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: var(--font-body);
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
-}
-
-::selection { background: var(--accent); color: #fff; }
-
-a { color: inherit; text-decoration: none; }
-
-/* ─── NOISE OVERLAY ─── */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
-  pointer-events: none;
-  z-index: 9999;
-}
-
-/* ─── CURSOR GLOW ─── */
-.cursor-glow {
-  position: fixed;
-  width: 600px;
-  height: 600px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(45,106,79,0.07) 0%, transparent 70%);
-  pointer-events: none;
-  z-index: 0;
-  transform: translate(-50%, -50%);
-  transition: opacity 0.3s;
-}
-
-/* ─── NAV ─── */
-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  padding: 20px 40px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  transition: all 0.4s var(--ease);
-  backdrop-filter: blur(0px);
-}
-
-nav.scrolled {
-  padding: 14px 40px;
-  background: rgba(10, 10, 15, 0.85);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--border);
-}
-
-.nav-logo {
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: 1.3rem;
-  letter-spacing: -0.02em;
-  position: relative;
-}
-
-.nav-logo span { color: var(--accent); }
-
-.nav-links {
-  display: flex;
-  gap: 32px;
-  list-style: none;
-}
-
-.nav-links a {
-  font-family: var(--font-detail);
-  font-size: 0.85rem;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  transition: color 0.3s;
-  position: relative;
-}
-
-.nav-links a::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: var(--accent);
-  transition: width 0.3s var(--ease-out);
-}
-
-.nav-links a:hover { color: var(--text); }
-.nav-links a:hover::after { width: 100%; }
-
-.nav-cta {
-  font-family: var(--font-detail);
-  font-size: 0.8rem;
-  font-weight: 500;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  padding: 10px 24px;
-  border: 1px solid var(--accent);
-  color: var(--accent);
-  border-radius: 100px;
-  transition: all 0.3s var(--ease);
-  cursor: pointer;
-  background: transparent;
-}
-
-.nav-cta:hover {
-  background: var(--accent);
-  color: #fff;
-  box-shadow: 0 10px 40px rgba(45, 106, 79, 0.35);
-}
-
-/* Mobile menu */
-.menu-toggle {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  cursor: pointer;
-  z-index: 1001;
-  background: none;
-  border: none;
-  padding: 4px;
-}
-
-.menu-toggle span {
-  display: block;
-  width: 24px;
-  height: 2px;
-  background: var(--text);
-  transition: all 0.3s var(--ease);
-}
-
-.menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-.menu-toggle.active span:nth-child(2) { opacity: 0; }
-.menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
-
-/* ─── HERO ─── */
-.hero {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
-  padding: 120px 60px 80px;
-}
-
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-}
-
-.hero-bg .gradient-orb {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(120px);
-  opacity: 0.4;
-}
-
-.hero-bg .orb-1 {
-  width: 600px;
-  height: 600px;
-  background: linear-gradient(135deg, var(--accent), #40916c);
-  top: -200px;
-  right: -100px;
-  opacity: 0.15;
-}
-
-.hero-bg .orb-2 {
-  width: 400px;
-  height: 400px;
-  background: linear-gradient(135deg, var(--navy), #1b4332);
-  bottom: -100px;
-  left: -50px;
-  opacity: 0.2;
-}
-
-.hero-content {
-  position: relative;
-  z-index: 1;
-  max-width: 900px;
-}
-
-.hero-tag {
-  font-family: var(--font-detail);
-  font-size: 0.8rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 24px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeUp 0.8s var(--ease-out) 0.3s forwards;
-}
-
-.hero-tag::before {
-  content: '';
-  width: 40px;
-  height: 1px;
-  background: var(--accent);
-}
-
-.hero-title {
-  font-family: var(--font-display);
-  font-size: clamp(3rem, 7vw, 5.5rem);
-  font-weight: 800;
-  line-height: 1.05;
-  letter-spacing: -0.03em;
-  margin-bottom: 28px;
-  opacity: 0;
-  transform: translateY(30px);
-  animation: fadeUp 0.8s var(--ease-out) 0.5s forwards;
-}
-
-.hero-title .line { display: block; }
-.hero-title .accent { color: var(--accent); }
-.hero-title .outline {
-  -webkit-text-stroke: 1.5px var(--text);
-  color: transparent;
-  transition: color 0.3s;
-}
-.hero-title .outline:hover { color: var(--text); -webkit-text-stroke: 0; }
-
-.hero-desc {
-  font-family: var(--font-body);
-  font-size: 1.15rem;
-  font-weight: 300;
-  color: var(--text-muted);
-  line-height: 1.7;
-  max-width: 560px;
-  margin-bottom: 48px;
-  opacity: 0;
-  transform: translateY(30px);
-  animation: fadeUp 0.8s var(--ease-out) 0.7s forwards;
-}
-
-.hero-actions {
-  display: flex;
-  gap: 20px;
-  align-items: center;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeUp 0.8s var(--ease-out) 0.9s forwards;
-}
-
-.btn-primary {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 16px 36px;
-  background: var(--accent);
-  color: #fff;
-  font-family: var(--font-detail);
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  border: none;
-  border-radius: 100px;
-  cursor: pointer;
-  transition: all 0.3s var(--ease);
-}
-
-.btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 40px rgba(45, 106, 79, 0.35);
-}
-
-.btn-primary svg { width: 16px; height: 16px; transition: transform 0.3s; }
-.btn-primary:hover svg { transform: translateX(4px); }
-
-.btn-ghost {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 16px 28px;
-  background: transparent;
-  color: var(--text-muted);
-  font-family: var(--font-detail);
-  font-size: 0.85rem;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  border: 1px solid var(--border);
-  border-radius: 100px;
-  cursor: pointer;
-  transition: all 0.3s var(--ease);
-}
-
-.btn-ghost:hover {
-  color: var(--text);
-  border-color: var(--text-muted);
-}
-
-.hero-scroll {
-  position: absolute;
-  bottom: 40px;
-  left: 60px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-family: var(--font-detail);
-  font-size: 0.7rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--text-dim);
-  opacity: 0;
-  animation: fadeUp 0.8s var(--ease-out) 1.2s forwards;
-}
-
-.scroll-line {
-  width: 1px;
-  height: 60px;
-  background: var(--border);
-  position: relative;
-  overflow: hidden;
-}
-
-.scroll-line::after {
-  content: '';
-  position: absolute;
-  top: -100%;
-  left: 0;
-  width: 100%;
-  height: 40%;
-  background: var(--accent);
-  animation: scrollDown 2s infinite;
-}
-
-@keyframes scrollDown {
-  0% { top: -40%; }
-  100% { top: 110%; }
-}
-
-/* ─── STATS STRIP ─── */
-.stats {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-}
-
-.stat-item {
-  padding: 48px 40px;
-  text-align: center;
-  border-right: 1px solid var(--border);
-  position: relative;
-  overflow: hidden;
-}
-
-.stat-item:last-child { border-right: none; }
-
-.stat-item::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, var(--accent-glow), transparent);
-  opacity: 0;
-  transition: opacity 0.5s;
-}
-
-.stat-item:hover::before { opacity: 1; }
-
-.stat-number {
-  font-family: var(--font-display);
-  font-size: 2.8rem;
-  font-weight: 800;
-  color: var(--text);
-  line-height: 1;
-  margin-bottom: 8px;
-  position: relative;
-}
-
-.stat-number .accent { color: var(--accent); font-size: 1.5rem; }
-
-.stat-label {
-  font-family: var(--font-detail);
-  font-size: 0.75rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--text-dim);
-  position: relative;
-}
-
-/* ─── SECTION COMMON ─── */
-.section {
-  padding: 120px 60px;
-  position: relative;
-}
-
-.section-label {
-  font-family: var(--font-detail);
-  font-size: 0.7rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 16px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.section-label::before {
-  content: '';
-  width: 30px;
-  height: 1px;
-  background: var(--accent);
-}
-
-.section-title {
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 4vw, 3.2rem);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  line-height: 1.15;
-  margin-bottom: 20px;
-}
-
-.section-subtitle {
-  font-size: 1.05rem;
-  font-weight: 300;
-  color: var(--text-muted);
-  line-height: 1.7;
-  max-width: 560px;
-  margin-bottom: 60px;
-}
-
-/* ─── ABOUT ─── */
-.about-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: start;
-}
-
-.about-image {
-  aspect-ratio: 4/5;
-  max-width: 360px;
-  background: linear-gradient(135deg, var(--bg-card), var(--surface));
-  border-radius: 24px;
-  overflow: hidden;
-  position: relative;
-  border: 2px solid var(--border);
-  transition: all 0.5s var(--ease-out);
-  cursor: pointer;
-}
-
-.about-image::before {
-  content: '';
-  position: absolute;
-  inset: -2px;
-  border-radius: 26px;
-  background: linear-gradient(135deg, var(--accent), var(--accent2), var(--gold));
-  z-index: -1;
-  opacity: 0;
-  transition: opacity 0.5s var(--ease);
-}
-
-.about-image::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: 24px;
-  background: linear-gradient(180deg, transparent 50%, rgba(10,10,15,0.6) 100%);
-  opacity: 0;
-  transition: opacity 0.4s;
-  z-index: 1;
-  pointer-events: none;
-}
-
-.about-image:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 30px 60px rgba(0,0,0,0.4);
-  border-color: transparent;
-}
-
-.about-image:hover::before { opacity: 1; }
-.about-image:hover::after { opacity: 1; }
-
-.about-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.6s var(--ease-out);
-}
-
-.about-image:hover img { transform: scale(1.05); }
-
-
-.about-bio p {
-  font-size: 1.05rem;
-  line-height: 1.8;
-  color: var(--text-muted);
-  margin-bottom: 20px;
-  font-weight: 300;
-}
-
-.about-bio strong { color: var(--text); font-weight: 500; }
-
-.skills-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 36px;
-}
-
-.skill-tag {
-  padding: 8px 18px;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 100px;
-  font-family: var(--font-detail);
-  font-size: 0.78rem;
-  color: var(--text-muted);
-  transition: all 0.3s;
-}
-
-.skill-tag:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-  background: var(--accent-glow);
-}
-
-/* ─── TIMELINE ─── */
-.timeline {
-  margin-top: 80px;
-  position: relative;
-  padding-left: 40px;
-}
-
-.timeline::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 1px;
-  background: linear-gradient(to bottom, var(--accent), var(--border));
-}
-
-.timeline-item {
-  position: relative;
-  padding-bottom: 48px;
-  padding-left: 32px;
-}
-
-.timeline-item::before {
-  content: '';
-  position: absolute;
-  left: -44px;
-  top: 6px;
-  width: 8px;
-  height: 8px;
-  background: var(--accent);
-  border-radius: 50%;
-  box-shadow: 0 0 12px var(--accent-glow);
-}
-
-.timeline-year {
-  font-family: var(--font-display);
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  color: var(--accent);
-  margin-bottom: 6px;
-}
-
-.timeline-role {
-  font-family: var(--font-display);
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin-bottom: 4px;
-}
-
-.timeline-company {
-  font-family: var(--font-detail);
-  font-size: 0.85rem;
-  color: var(--text-muted);
-}
-
-/* ─── PORTFOLIO ─── */
-.portfolio-filters {
-  display: flex;
-  gap: 12px;
-  margin-bottom: 48px;
-  flex-wrap: wrap;
-}
-
-.filter-btn {
-  padding: 8px 20px;
-  background: transparent;
-  border: 1px solid var(--border);
-  border-radius: 100px;
-  font-family: var(--font-detail);
-  font-size: 0.78rem;
-  letter-spacing: 0.04em;
-  color: var(--text-muted);
-  cursor: pointer;
-  transition: all 0.3s;
-}
-
-.filter-btn:hover, .filter-btn.active {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: #fff;
-}
-
-.portfolio-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
-}
-
-.project-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  overflow: hidden;
-  transition: all 0.4s var(--ease);
-  cursor: pointer;
-  position: relative;
-}
-
-.project-card:hover {
-  border-color: rgba(45, 106, 79, 0.3);
-  transform: translateY(-4px);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-}
-
-.project-card:first-child {
-  grid-column: 1 / -1;
-}
-
-.project-cover {
-  height: 240px;
-  background: linear-gradient(135deg, var(--surface), var(--bg-elevated));
-  position: relative;
-  overflow: hidden;
-}
-
-.project-card:first-child .project-cover { height: 320px; }
-
-.project-cover img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.6s var(--ease-out);
-}
-
-.project-card:hover .project-cover img { transform: scale(1.08); }
-
-.project-cover-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, transparent 40%, rgba(10,10,15,0.7) 100%);
-  z-index: 1;
-  pointer-events: none;
-}
-
-.project-cover-label {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  padding: 6px 14px;
-  background: rgba(45, 106, 79, 0.92);
-  border-radius: 100px;
-  font-family: var(--font-detail);
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: #fff;
-}
-
-.project-body { padding: 28px; }
-
-.project-title {
-  font-family: var(--font-display);
-  font-size: 1.3rem;
-  font-weight: 700;
-  margin-bottom: 8px;
-  letter-spacing: -0.01em;
-}
-
-.project-desc {
-  font-size: 0.9rem;
-  color: var(--text-muted);
-  line-height: 1.6;
-  margin-bottom: 20px;
-  font-weight: 300;
-}
-
-.project-meta {
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-
-.project-tag {
-  font-family: var(--font-detail);
-  font-size: 0.7rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--text-dim);
-  padding: 4px 12px;
-  background: var(--bg);
-  border-radius: 100px;
-}
-
-/* ─── CREATOR HUB ─── */
-.creator-section {
-  background: linear-gradient(180deg, var(--bg) 0%, var(--bg-card) 50%, var(--bg) 100%);
-}
-
-.pillars-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 16px;
-  margin-top: 48px;
-}
-
-.pillar-card {
-  background: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 32px 20px;
-  text-align: center;
-  transition: all 0.3s var(--ease);
-  position: relative;
-  overflow: hidden;
-}
-
-.pillar-card:hover {
-  border-color: var(--accent);
-  transform: translateY(-4px);
-}
-
-.pillar-card::before {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: var(--accent);
-  transform: scaleX(0);
-  transition: transform 0.3s var(--ease-out);
-}
-
-.pillar-card:hover::before { transform: scaleX(1); }
-
-.pillar-emoji { font-size: 2rem; margin-bottom: 16px; display: block; }
-
-.pillar-name {
-  font-family: var(--font-display);
-  font-size: 0.9rem;
-  font-weight: 600;
-  margin-bottom: 8px;
-}
-
-.pillar-pct {
-  font-family: var(--font-display);
-  font-size: 1.6rem;
-  font-weight: 800;
-  color: var(--accent);
-}
-
-/* ─── SERVICES ─── */
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-}
-
-.service-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 40px 32px;
-  transition: all 0.4s var(--ease);
-  position: relative;
-}
-
-.service-card:hover {
-  border-color: rgba(45, 106, 79, 0.35);
-  transform: translateY(-4px);
-}
-
-.service-icon {
-  width: 48px;
-  height: 48px;
-  background: var(--accent-glow);
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 24px;
-  font-size: 1.4rem;
-}
-
-.service-name {
-  font-family: var(--font-display);
-  font-size: 1.15rem;
-  font-weight: 600;
-  margin-bottom: 12px;
-}
-
-.service-desc {
-  font-size: 0.9rem;
-  color: var(--text-muted);
-  line-height: 1.65;
-  font-weight: 300;
-}
-
-/* ─── CONTACT ─── */
-.contact-section { background: var(--bg-card); }
-
-.contact-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-}
-
-.contact-form { display: flex; flex-direction: column; gap: 20px; }
-
-.form-group { display: flex; flex-direction: column; gap: 8px; }
-
-.form-group label {
-  font-family: var(--font-detail);
-  font-size: 0.75rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--text-dim);
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-  padding: 14px 18px;
-  background: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  color: var(--text);
-  font-family: var(--font-body);
-  font-size: 0.95rem;
-  transition: border-color 0.3s;
-  outline: none;
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-  border-color: var(--accent);
-}
-
-.form-group textarea { resize: vertical; min-height: 120px; }
-
-.form-group select { cursor: pointer; appearance: none; }
-
-.contact-info { display: flex; flex-direction: column; justify-content: center; gap: 40px; }
-
-.contact-info-item { display: flex; gap: 16px; align-items: flex-start; }
-
-.contact-icon {
-  width: 44px;
-  height: 44px;
-  min-width: 44px;
-  background: var(--accent-glow);
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
-}
-
-.contact-label {
-  font-family: var(--font-detail);
-  font-size: 0.7rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--text-dim);
-  margin-bottom: 4px;
-}
-
-.contact-value {
-  font-size: 1rem;
-  color: var(--text);
-  font-weight: 400;
-}
-
-.contact-value a {
-  color: var(--accent);
-  transition: opacity 0.3s;
-}
-
-.contact-value a:hover { opacity: 0.8; }
-
-/* ─── FOOTER ─── */
-footer {
-  padding: 40px 60px;
-  border-top: 1px solid var(--border);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.footer-copy {
-  font-family: var(--font-detail);
-  font-size: 0.8rem;
-  color: var(--text-dim);
-}
-
-.footer-socials {
-  display: flex;
-  gap: 20px;
-}
-
-.social-link {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: 1px solid var(--border);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  transition: all 0.3s;
-}
-
-.social-link:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-  background: var(--accent-glow);
-}
-
-/* ─── ANIMATIONS ─── */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.reveal {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.8s var(--ease-out);
-}
-
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.reveal-delay-1 { transition-delay: 0.1s; }
-.reveal-delay-2 { transition-delay: 0.2s; }
-.reveal-delay-3 { transition-delay: 0.3s; }
-.reveal-delay-4 { transition-delay: 0.4s; }
-
-/* ─── RESPONSIVE ─── */
-@media (max-width: 1024px) {
-  .pillars-grid { grid-template-columns: repeat(3, 1fr); }
-  .services-grid { grid-template-columns: repeat(2, 1fr); }
-}
-
-@media (max-width: 768px) {
-  nav { padding: 16px 24px; }
-  nav.scrolled { padding: 12px 24px; }
-  .nav-links, .nav-cta-wrap { display: none; }
-  .menu-toggle { display: flex; }
-  
-  .nav-links.mobile-open {
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    inset: 0;
-    background: rgba(10, 10, 15, 0.97);
-    backdrop-filter: blur(20px);
-    align-items: center;
-    justify-content: center;
-    gap: 36px;
-    z-index: 999;
-  }
-
-  .nav-links.mobile-open a {
-    font-size: 1.2rem;
-    color: var(--text);
-  }
-
-  .hero { padding: 100px 24px 60px; min-height: 90vh; }
-  .section { padding: 80px 24px; }
-  
-  .stats { grid-template-columns: repeat(2, 1fr); }
-  .stat-item { padding: 32px 20px; }
-  .stat-number { font-size: 2rem; }
-  
-  .about-grid { grid-template-columns: 1fr; gap: 40px; }
-  .about-image { max-width: 280px; max-height: 350px; margin: 0 auto; }
-  
-  .portfolio-grid { grid-template-columns: 1fr; }
-  .project-card:first-child { grid-column: 1; }
-  .project-cover, .project-card:first-child .project-cover { height: 200px; }
-  
-  .pillars-grid { grid-template-columns: repeat(2, 1fr); }
-  .services-grid { grid-template-columns: 1fr; }
-  .contact-grid { grid-template-columns: 1fr; gap: 48px; }
-  
-  footer { flex-direction: column; gap: 20px; text-align: center; padding: 32px 24px; }
-  
-  .hero-scroll { display: none; }
-}
-
-@media (max-width: 480px) {
-  .stats { grid-template-columns: 1fr 1fr; }
-  .pillars-grid { grid-template-columns: 1fr 1fr; }
-  .hero-actions { flex-direction: column; width: 100%; }
-  .btn-primary, .btn-ghost { width: 100%; justify-content: center; }
+:root{
+  --bg:#FAF8F5; --bg-2:#F3EFE9; --ink:#1A1A1A; --ink-soft:#5A554E;
+  --line:#E2DBD1; --brass:#9A7B4F; --brass-lt:#C9A96A; --navy:#1C2A3A;
+  --serif:'Cormorant Garamond',Georgia,serif; --sans:'Inter',system-ui,sans-serif;
+  --pad:clamp(1.5rem,6vw,7rem); --ease:cubic-bezier(.19,1,.22,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.025;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+h1,h2,h3,.serif{font-family:var(--serif);font-weight:500;letter-spacing:.01em;line-height:1.15}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{max-width:1240px;margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
+.eyebrow{font-family:var(--sans);font-weight:400;font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;color:var(--brass)}
+.lead{font-size:clamp(1.05rem,1.4vw,1.25rem);color:var(--ink-soft);max-width:46ch}
+
+/* SCROLL PROGRESS */
+.progress{position:fixed;top:0;left:0;height:2px;width:0;background:var(--brass-lt);z-index:200;transition:width .1s linear}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;
+  padding:1.1rem var(--pad);transition:background .5s,padding .5s,box-shadow .5s;mix-blend-mode:difference}
+nav.solid{mix-blend-mode:normal;background:rgba(250,248,245,.82);backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--line);padding:.8rem var(--pad)}
+nav .brand{font-family:var(--serif);font-size:1.25rem;letter-spacing:.14em;color:#fff}
+nav.solid .brand{color:var(--ink)}
+.navlinks{display:flex;gap:2.1rem}
+.navlinks a{font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:#fff;opacity:.85;position:relative;padding:.2rem 0}
+nav.solid .navlinks a{color:var(--ink)}
+.navlinks a::after{content:"";position:absolute;left:0;bottom:-2px;height:1px;width:0;background:var(--brass);transition:width .4s}
+.navlinks a:hover::after,.navlinks a.active::after{width:100%}
+.navtoggle{display:none;background:none;border:0;color:#fff;font-size:1.4rem;cursor:pointer}
+nav.solid .navtoggle{color:var(--ink)}
+
+/* TEXT REVEAL (word mask) */
+.rt .w{display:inline-block;overflow:hidden;vertical-align:top}
+.rt .w>span{display:inline-block;transform:translateY(115%);transition:transform 1s var(--ease)}
+.rt.in .w>span{transform:translateY(0)}
+
+/* HERO */
+.hero{position:relative;height:100svh;min-height:600px;display:flex;align-items:flex-end;overflow:hidden}
+.hero-media{position:absolute;inset:-2px;z-index:0;will-change:transform}
+.hero-media .kb{position:absolute;inset:0}
+.hero-media img{width:100%;height:100%;object-fit:cover;animation:kb 26s ease-in-out infinite alternate;will-change:transform}
+@keyframes kb{from{transform:scale(1.05)}to{transform:scale(1.18)}}
+.hero-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,12,16,.4)0%,rgba(10,12,16,.12)45%,rgba(10,12,16,.78)100%)}
+.hero-inner{position:relative;z-index:2;color:#fff;padding-bottom:clamp(3rem,8vh,7rem);width:100%}
+.hero h1{font-size:clamp(2.8rem,8vw,6.8rem);font-weight:500;color:#fff}
+.hero .role,.hero .sub{opacity:0;transform:translateY(24px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+.hero.in .role{opacity:1;transform:none;transition-delay:.7s}
+.hero.in .sub{opacity:1;transform:none;transition-delay:.9s}
+.hero .role{font-size:clamp(1rem,2vw,1.5rem);letter-spacing:.04em;color:rgba(255,255,255,.92);margin-top:.6rem;font-family:var(--serif);font-style:italic}
+.hero .sub{margin-top:1.4rem;max-width:42ch;color:rgba(255,255,255,.82);font-size:1rem}
+.scrollcue{position:absolute;bottom:1.6rem;left:50%;transform:translateX(-50%);z-index:3;color:#fff;font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;opacity:.8;display:flex;flex-direction:column;align-items:center;gap:.5rem}
+.scrollcue span{display:block;width:1px;height:44px;background:linear-gradient(#fff,transparent);animation:cue 2.2s ease-in-out infinite}
+@keyframes cue{0%,100%{transform:scaleY(.4);opacity:.4}50%{transform:scaleY(1);opacity:1}}
+
+/* SECTIONS */
+section{padding:clamp(4.5rem,11vh,9rem) 0;position:relative}
+.sec-head{margin-bottom:clamp(2.2rem,5vw,3.6rem);max-width:60ch}
+.sec-head h2{font-size:clamp(2rem,4.6vw,3.4rem);margin-top:.7rem}
+.sec-head .num{font-size:.72rem;letter-spacing:.3em;color:var(--brass);font-weight:400}
+.reveal{opacity:0;transform:translateY(34px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+.reveal.d1{transition-delay:.09s}.reveal.d2{transition-delay:.18s}.reveal.d3{transition-delay:.27s}.reveal.d4{transition-delay:.36s}
+.clip{clip-path:inset(0 0 100% 0);transition:clip-path 1.2s var(--ease)}
+.clip.in{clip-path:inset(0 0 0 0)}
+
+/* ABOUT */
+.about{display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(2rem,6vw,5rem);align-items:center}
+.about .frame{position:relative;overflow:hidden}
+.about .frame img{width:100%;aspect-ratio:4/5;object-fit:cover;transform:scale(1.01)}
+.about-body p{margin-bottom:1.2rem;max-width:52ch}
+.roletag{display:inline-block;margin-top:.4rem;font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);border:1px solid var(--line);border-radius:2rem;padding:.5rem 1.1rem}
+.meta-row{display:flex;gap:2.6rem;flex-wrap:wrap;margin-top:1.8rem;padding-top:1.6rem;border-top:1px solid var(--line)}
+.meta-row .ml{font-size:.68rem;letter-spacing:.26em;text-transform:uppercase;color:var(--brass);display:block;margin-bottom:.35rem}
+.meta-row p{font-size:.95rem;color:var(--ink);margin:0}
+/* BRAND PEDIGREE STRIP */
+.brands{padding:clamp(2.6rem,5vw,3.6rem) 0;border-bottom:1px solid var(--line)}
+.brands .lbl{text-align:center;font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:1.6rem}
+.brand-row{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:.6rem 1.5rem}
+.brand-row span{font-family:var(--serif);font-size:clamp(1.05rem,2vw,1.5rem);color:var(--ink);opacity:.72;letter-spacing:.02em}
+.brand-row i{color:var(--brass);opacity:.6;font-style:normal}
+.avail{max-width:52ch;margin:1.4rem auto 0;color:rgba(255,255,255,.78);font-size:1rem}
+.contact .loc{margin-top:2.4rem;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.55)}
+
+/* EXPERIENCE */
+.tl{margin-top:1rem}
+.tl-item{display:grid;grid-template-columns:190px 1fr;gap:2rem;padding:2rem 0;border-top:1px solid var(--line)}
+.tl-item:last-child{border-bottom:1px solid var(--line)}
+.tl-when{font-size:.8rem;letter-spacing:.06em;color:var(--brass);padding-top:.4rem}
+.tl-role h3{font-size:1.5rem}
+.tl-role .org{color:var(--ink-soft);font-size:.95rem;margin-top:.15rem}
+.tl-role p{margin-top:.7rem;color:var(--ink-soft);max-width:60ch;font-size:.96rem}
+
+/* FEATURED WORK */
+.work{background:var(--navy);color:#fff}
+.work .eyebrow{color:var(--brass-lt)}
+.work .sec-head h2,.work h3{color:#fff}
+.work .num{color:var(--brass-lt)}
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(1rem,2vw,1.6rem)}
+.card{position:relative;overflow:hidden;background:#101a25}
+.card img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease)}
+.card:hover img{transform:scale(1.06)}
+.card .meta{position:absolute;left:0;right:0;bottom:0;padding:1.4rem 1.5rem;background:linear-gradient(transparent,rgba(8,12,18,.9));color:#fff}
+.card .meta h3{font-size:1.35rem}
+.card .meta .r{font-size:.82rem;color:rgba(255,255,255,.72);margin-top:.25rem;letter-spacing:.02em}
+.c-tall{grid-column:span 4;aspect-ratio:3/4.4}
+.c-wide{grid-column:span 8;aspect-ratio:16/10}
+.c-half{grid-column:span 6;aspect-ratio:4/3}
+.c-third{grid-column:span 4;aspect-ratio:1/1}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;border-top:1px solid rgba(255,255,255,.15);padding-top:3rem;margin-top:clamp(1.6rem,3vw,2.4rem)}
+.stat .n{font-family:var(--serif);font-size:clamp(2.4rem,5vw,3.6rem);line-height:1;color:#fff}
+.stat .l{font-size:.82rem;color:rgba(255,255,255,.7);margin-top:.6rem;letter-spacing:.03em}
+
+/* CASE STUDY (Sunday Brunch) */
+.cs{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
+.cs .cs-media{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.cs .cs-media figure{overflow:hidden;background:var(--bg-2)}
+.cs .cs-media img{width:100%;height:100%;object-fit:cover;aspect-ratio:3/4;transition:transform 1.4s var(--ease)}
+.cs .cs-media figure:hover img{transform:scale(1.06)}
+.cs .cs-media figure:first-child{margin-top:2.4rem}
+.cs .tagline{font-family:var(--serif);font-style:italic;font-size:1.1rem;color:var(--brass);margin-bottom:.6rem}
+.cs h2{font-size:clamp(1.9rem,4vw,3rem);margin-bottom:1.2rem}
+.cs p.body{color:var(--ink-soft);max-width:52ch;margin-bottom:1.6rem}
+.cs .facts{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem 2rem;border-top:1px solid var(--line);padding-top:1.6rem;margin-top:.4rem}
+.cs .facts .f .h{font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--brass);margin-bottom:.35rem}
+.cs .facts .f p{font-size:.92rem;color:var(--ink)}
+@media(max-width:860px){.cs{grid-template-columns:1fr}.cs .cs-media figure:first-child{margin-top:0}.cs .facts{grid-template-columns:1fr}}
+
+/* FADE SLIDESHOW */
+.show{position:relative;width:100%;height:min(78vh,720px);overflow:hidden;background:#0d1219}
+.show .sl{position:absolute;inset:0;opacity:0;transition:opacity 1.4s ease;will-change:opacity}
+.show .sl.on{opacity:1}
+.show .sl img{width:100%;height:100%;object-fit:cover;animation:kb 12s ease-in-out infinite alternate}
+.show::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,10,14,.25),rgba(8,10,14,.55));pointer-events:none}
+.show .cap{position:absolute;left:0;bottom:0;z-index:3;padding:clamp(1.6rem,4vw,3rem);color:#fff;max-width:60ch}
+.show .cap .t{font-family:var(--serif);font-size:clamp(1.4rem,3vw,2.2rem)}
+.show .cap .s{font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;color:var(--brass-lt);margin-top:.4rem}
+.show .sdots{position:absolute;right:clamp(1.4rem,4vw,3rem);bottom:clamp(1.6rem,4vw,3rem);z-index:3;display:flex;gap:.6rem}
+.show .sdots button{width:34px;height:3px;border:0;background:rgba(255,255,255,.35);cursor:pointer;padding:0;transition:.4s}
+.show .sdots button.on{background:#fff}
+
+/* PARALLAX DIVIDER */
+.divider{position:relative;height:60vh;min-height:420px;overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center}
+.divider .pbg{position:absolute;inset:-12% 0;z-index:0;will-change:transform}
+.divider .pbg img{width:100%;height:100%;object-fit:cover}
+.divider::after{content:"";position:absolute;inset:0;background:rgba(12,14,18,.5)}
+.divider .dtext{position:relative;z-index:2;color:#fff;padding:0 1.5rem}
+.divider .dtext p.big{font-family:var(--serif);font-style:italic;font-size:clamp(1.6rem,4vw,3rem);max-width:22ch;margin:0 auto;line-height:1.3}
+.divider .dtext .k{font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--brass-lt);margin-bottom:1.2rem;font-family:var(--sans)}
+
+/* RECOGNITION */
+.recog{background:var(--bg-2)}
+.quote{font-family:var(--serif);font-size:clamp(1.6rem,4vw,2.9rem);line-height:1.3;max-width:20ch;font-style:italic}
+.quote .mark{color:var(--brass)}
+.recog-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(2rem,5vw,4rem);align-items:center}
+.badges{display:flex;flex-direction:column;gap:1.4rem}
+.badge{border-left:2px solid var(--brass);padding:.4rem 0 .4rem 1.3rem}
+.badge b{font-family:var(--serif);font-size:1.3rem;font-weight:500;display:block}
+.badge span{color:var(--ink-soft);font-size:.9rem}
+.press{display:flex;flex-wrap:wrap;gap:1rem 2.4rem;margin-top:3rem;border-top:1px solid var(--line);padding-top:2rem;align-items:center}
+.press .lbl{font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink-soft)}
+.press .p{font-family:var(--serif);font-size:1.15rem;color:var(--ink);opacity:.75}
+
+/* PHOTOGRAPHY SLIDER */
+.creative{overflow:hidden}
+.slider{position:relative;margin-top:1rem;-webkit-user-select:none;user-select:none}
+.track{display:flex;align-items:center;will-change:transform;transition:transform .85s var(--ease);cursor:grab}
+.track.drag{transition:none;cursor:grabbing}
+.slide{flex:0 0 auto;width:min(62vw,720px);margin-right:clamp(1rem,3vw,2.4rem);position:relative;
+  aspect-ratio:3/2;overflow:hidden;opacity:.35;transform:scale(.88);transition:opacity .85s var(--ease),transform .85s var(--ease);background:var(--bg-2)}
+.slide img{width:100%;height:100%;object-fit:cover;pointer-events:none}
+.slide.active{opacity:1;transform:scale(1);box-shadow:0 40px 90px -30px rgba(20,20,20,.45)}
+.slide figcaption{position:absolute;left:0;bottom:0;width:100%;padding:1.3rem 1.5rem;color:#fff;font-size:.86rem;letter-spacing:.04em;
+  background:linear-gradient(transparent,rgba(0,0,0,.72));opacity:0;transition:opacity .6s}
+.slide.active figcaption{opacity:1}
+.slide .expand{position:absolute;top:1rem;right:1rem;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:#fff;
+  background:rgba(0,0,0,.35);backdrop-filter:blur(4px);padding:.5rem .8rem;border:1px solid rgba(255,255,255,.4);cursor:pointer;opacity:0;transition:opacity .5s}
+.slide.active .expand{opacity:1;transition-delay:.2s}
+.s-ctrl{display:flex;align-items:center;gap:1.6rem;margin-top:2rem;padding:0 var(--pad);max-width:1240px;margin-left:auto;margin-right:auto}
+.s-btn{width:52px;height:52px;border:1px solid var(--line);background:none;border-radius:50%;font-family:var(--serif);font-size:1.5rem;color:var(--ink);cursor:pointer;transition:.4s;display:flex;align-items:center;justify-content:center}
+.s-btn:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+.dots{display:flex;gap:.6rem;margin-left:auto}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--line);border:0;cursor:pointer;transition:.4s;padding:0}
+.dot.on{background:var(--brass);transform:scale(1.35)}
+.s-count{font-family:var(--serif);font-size:1.1rem;color:var(--ink-soft);min-width:4.5rem}
+.s-count b{color:var(--ink)}
+
+/* CASE STUDIES */
+.cases{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1rem,2.4vw,2rem)}
+.case{border-top:1px solid var(--line);padding-top:1.4rem}
+.case .k{font-family:var(--serif);font-size:2.4rem;line-height:1;color:var(--ink)}
+.case .k small{font-size:.42em;color:var(--brass)}
+.case h3{font-size:1.05rem;margin-top:.7rem;font-family:var(--sans);font-weight:500;letter-spacing:.02em}
+.case p{color:var(--ink-soft);font-size:.9rem;margin-top:.4rem}
+.proof{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1rem,2.4vw,2rem);margin-top:clamp(2rem,4vw,3rem)}
+.proof figure{overflow:hidden;border:1px solid var(--line);background:#fff}
+.proof img{width:100%;aspect-ratio:16/9;object-fit:cover;object-position:top}
+.proof figcaption{font-size:.78rem;letter-spacing:.04em;color:var(--ink-soft);padding:.9rem 1.1rem;background:#fff;border-top:1px solid var(--line)}
+.impact{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem 1.6rem;margin-top:1.2rem}
+.impact .n{font-family:var(--serif);font-size:clamp(2.1rem,4vw,3.1rem);line-height:1;color:var(--ink)}
+.impact .n small{font-size:.5em;color:var(--brass);letter-spacing:0}
+.impact .l{font-size:.8rem;color:var(--ink-soft);margin-top:.5rem;letter-spacing:.02em;max-width:20ch}
+.impact-cap{font-size:.8rem;color:var(--ink-soft);margin-top:1.8rem;letter-spacing:.01em;max-width:70ch}
+@media(max-width:860px){.impact{grid-template-columns:1fr 1fr;gap:1.6rem}}
+.chgroups{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.2rem,2.6vw,2rem);margin-top:1rem}
+.chgroup{border-top:1px solid var(--line);padding-top:1.3rem}
+.chgroup figure{overflow:hidden;margin-bottom:1.2rem}
+.chgroup figure img{width:100%;aspect-ratio:16/10;object-fit:cover;transition:transform 1.4s var(--ease)}
+.chgroup:hover figure img{transform:scale(1.05)}
+.chgroup h3{font-family:var(--sans);font-weight:500;font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;color:var(--brass);margin-bottom:1rem}
+@media(max-width:860px){.chgroups{grid-template-columns:1fr}}
+
+/* SKILLS */
+.skills{background:var(--bg-2)}
+.twocol{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,6vw,5rem)}
+.tags{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:.4rem}
+.tag{border:1px solid var(--line);border-radius:2rem;padding:.5rem 1.1rem;font-size:.82rem;color:var(--ink-soft);background:var(--bg);transition:.35s}
+.tag:hover{border-color:var(--brass);color:var(--ink)}
+.subh{font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--brass);margin-bottom:1rem}
+
+/* EDUCATION */
+.edu{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,5vw,4rem)}
+.edu .e{border-top:1px solid var(--line);padding-top:1.4rem}
+.edu .e h3{font-size:1.3rem}
+.edu .e span{color:var(--ink-soft);font-size:.9rem}
+
+/* CONTACT */
+.contact{background:var(--navy);color:#fff;text-align:center}
+.contact .eyebrow{color:var(--brass-lt)}
+.contact h2{font-size:clamp(2.4rem,7vw,5rem);color:#fff;margin:.6rem 0 2rem}
+.contact a.mail{font-family:var(--serif);font-size:clamp(1.3rem,3vw,2rem);color:#fff;border-bottom:1px solid rgba(255,255,255,.35);padding-bottom:.2rem;transition:.4s}
+.contact a.mail:hover{border-color:var(--brass-lt);color:var(--brass-lt)}
+.cbtns{display:flex;gap:1.2rem;justify-content:center;flex-wrap:wrap;margin-top:2.6rem}
+.cbtn{border:1px solid rgba(255,255,255,.3);padding:.85rem 1.8rem;font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;transition:.4s}
+.cbtn:hover{background:#fff;color:var(--navy);border-color:#fff}
+footer{background:var(--navy);color:rgba(255,255,255,.55);text-align:center;padding:2.4rem 1rem;font-size:.78rem;letter-spacing:.06em;border-top:1px solid rgba(255,255,255,.12)}
+
+/* LIGHTBOX */
+.lb{position:fixed;inset:0;z-index:1000;background:rgba(12,14,18,.95);display:none;align-items:center;justify-content:center;opacity:0;transition:opacity .4s}
+.lb.on{display:flex;opacity:1}
+.lb img{max-width:90vw;max-height:84vh;object-fit:contain;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.lb .x,.lb .nav{position:absolute;background:none;border:0;color:#fff;cursor:pointer;font-family:var(--serif)}
+.lb .x{top:1.4rem;right:1.8rem;font-size:2.2rem}
+.lb .nav{top:50%;transform:translateY(-50%);font-size:3rem;padding:0 1.4rem;opacity:.7;transition:.3s}
+.lb .nav:hover{opacity:1}
+.lb .prev{left:.5rem}.lb .next{right:.5rem}
+.lb figcaption{position:absolute;bottom:1.4rem;left:0;width:100%;text-align:center;color:rgba(255,255,255,.8);font-size:.85rem;letter-spacing:.06em}
+
+@media(max-width:860px){
+  .navlinks{position:fixed;inset:0;background:var(--bg);flex-direction:column;justify-content:center;align-items:center;gap:2rem;transform:translateX(100%);transition:transform .5s var(--ease)}
+  .navlinks.open{transform:none}
+  .navlinks a{color:var(--ink)!important;font-size:1rem}
+  .navtoggle{display:block;z-index:101}
+  nav .brand{color:#fff}
+  .about,.recog-grid,.twocol,.edu,.proof{grid-template-columns:1fr}
+  .stats{grid-template-columns:1fr 1fr;gap:1.6rem}
+  .cases{grid-template-columns:1fr}
+  .tl-item{grid-template-columns:1fr;gap:.5rem}
+  .c-tall,.c-wide,.c-half,.c-third{grid-column:span 12}
+  .c-tall{aspect-ratio:4/3}
+  .slide{width:82vw}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;scroll-behavior:auto}
+  .reveal,.clip,.rt .w>span,.hero .role,.hero .sub{opacity:1!important;transform:none!important;clip-path:none!important;transition:none!important}
+  .hero-media img{animation:none}
+  .track{transition:none}
 }
 </style>
 </head>
 <body>
+<div class="progress" id="progress"></div>
 
-<!-- Cursor Glow -->
-<div class="cursor-glow" id="cursorGlow"></div>
-
-<!-- Navigation -->
-<nav id="navbar">
-  <a href="#" class="nav-logo">alvin<span>.</span></a>
-  <ul class="nav-links" id="navLinks">
-    <li><a href="#about" onclick="closeMenu()">About</a></li>
-    <li><a href="#portfolio" onclick="closeMenu()">Portfolio</a></li>
-    <li><a href="#creator" onclick="closeMenu()">Creator</a></li>
-    <li><a href="#services" onclick="closeMenu()">Services</a></li>
-    <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
-  </ul>
-  <div class="nav-cta-wrap" style="display:flex;">
-    <a href="#contact" class="nav-cta">Let's Talk</a>
+<nav id="nav">
+  <a href="#top" class="brand">Alvin Aurellius</a>
+  <div class="navlinks" id="navlinks">
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#work">Work</a>
+    <a href="#recognition">Recognition</a>
+    <a href="#creative">Creative</a>
+    <a href="#contact">Contact</a>
   </div>
-  <button class="menu-toggle" id="menuToggle" onclick="toggleMenu()">
-    <span></span><span></span><span></span>
-  </button>
+  <button class="navtoggle" id="navtoggle" aria-label="Menu">☰</button>
 </nav>
 
-<!-- Hero Section -->
-<section class="hero" id="hero">
-  <div class="hero-bg">
-    <div class="gradient-orb orb-1"></div>
-    <div class="gradient-orb orb-2"></div>
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="hero-media" id="heroMedia">
+    <div class="kb"><img src="assets/hero.webp" alt="Rooftop terrace at dusk overlooking the coastline" fetchpriority="high" /></div>
   </div>
-  <div class="hero-content">
-    <div class="hero-tag">Based in Bali, Indonesia</div>
-    <h1 class="hero-title">
-      <span class="line">Crafting</span>
-      <span class="line"><span class="accent">Culinary</span> Stories</span>
-      <span class="line">in <span class="outline">Paradise</span></span>
-    </h1>
-    <p class="hero-desc">
-      F&B Marketing professional at Sheraton Bali Kuta Resort. I build brands, drive digital campaigns, and create unforgettable dining experiences across three signature outlets.
-    </p>
-    <div class="hero-actions">
-      <a href="#portfolio" class="btn-primary">
-        View My Work
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
-      <a href="#contact" class="btn-ghost">Get in Touch</a>
+  <div class="hero-inner">
+    <div class="wrap">
+      <p class="eyebrow" style="color:var(--brass-lt);margin-bottom:1rem">Digital &amp; Social Media Marketing · Food &amp; Beverage</p>
+      <h1 class="rt" id="heroTitle">Alvin Aurellius</h1>
+      <p class="role">I turn dining moments into digital demand.</p>
+      <p class="sub">Assistant F&amp;B Marketing Manager at Sheraton Bali Kuta Resort — leading social media, content, and performance campaigns that fill tables and build the brand online.</p>
     </div>
   </div>
-  <div class="hero-scroll">
-    <div class="scroll-line"></div>
-    <span>Scroll to explore</span>
+  <div class="scrollcue">Scroll<span></span></div>
+</header>
+
+<!-- BRAND PEDIGREE -->
+<section class="brands reveal" aria-label="Brands worked with">
+  <div class="wrap">
+    <p class="lbl">Built inside international hospitality</p>
+    <div class="brand-row">
+      <span>Marriott International</span><i>·</i><span>Sheraton</span><i>·</i><span>Aloft</span><i>·</i><span>JW Marriott</span><i>·</i><span>Vignette Collection</span><i>·</i><span>Tanly Hospitality</span><i>·</i><span>Bene</span><i>·</i><span>Daily Social</span>
+    </div>
   </div>
 </section>
 
-<!-- Stats Strip -->
-<div class="stats">
-  <div class="stat-item reveal">
-    <div class="stat-number">4<span class="accent">+</span></div>
-    <div class="stat-label">Years Experience</div>
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap about">
+    <div class="frame clip"><img src="assets/portrait.webp" alt="Portrait of Alvin Aurellius" loading="lazy" /></div>
+    <div class="about-body">
+      <p class="num reveal">01 — About</p>
+      <h2 class="serif rt" style="font-size:clamp(1.9rem,4vw,3rem);margin:.4rem 0 1.4rem">A digital marketer, plated for hospitality.</h2>
+      <p class="reveal d1">My work lives where social media, content, and performance marketing meet food and beverage. I run the channels that decide whether a restaurant is discovered — Instagram and social storytelling, paid campaigns, SEO, EDM, and the analytics underneath them — using dining and resort experiences as the material.</p>
+      <p class="reveal d2">From directing a shoot to reading a GA4 dashboard, I own the whole arc: the content a guest scrolls past, the campaign that brings them in, and the numbers that prove it worked. Restraint, taste, and measurable results — in that order.</p>
+      <span class="roletag reveal d3">Based in Bali, Indonesia</span>
+      <div class="meta-row reveal d3">
+        <div><span class="ml">Languages</span><p>English · Bahasa Indonesia</p></div>
+        <div><span class="ml">Markets</span><p>Domestic &amp; international · China-ready social (RED)</p></div>
+        <div><span class="ml">Focus</span><p>Resorts, restaurants &amp; lifestyle hospitality</p></div>
+      </div>
+    </div>
   </div>
-  <div class="stat-item reveal reveal-delay-1">
-    <div class="stat-number">10<span class="accent">+</span></div>
-    <div class="stat-label">Outlets Managed</div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="num reveal">02 — Experience</p>
+      <h2 class="rt">The brands that shaped my craft.</h2>
+    </div>
+    <div class="tl">
+      <div class="tl-item reveal">
+        <div class="tl-when">Feb 2025 — Present</div>
+        <div class="tl-role"><h3>Sheraton Bali Kuta Resort</h3><div class="org">Assistant F&amp;B Marketing Manager</div>
+        <p>Own the digital and social presence of the resort's dining brands — content direction, Instagram and social campaigns, paid media, EDM, and analytics — alongside the activations and seasonal campaigns that drive covers and awareness.</p></div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-when">2024</div>
+        <div class="tl-role"><h3>Elandas by Vignette Collection</h3><div class="org">Assistant Digital Marketing Manager</div>
+        <p>Owned digital marketing and content across the property — web, paid social, EDM, and analytics — with a consistent, elevated visual language.</p></div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-when">2022 — 2024</div>
+        <div class="tl-role"><h3>Tanly Hospitality</h3><div class="org">Cluster Marketing Comms Coordinator → Executive</div>
+        <p>Managed marketing communications across a cluster of properties — creative production, PR, media relations, and multi-property campaign delivery.</p></div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-when">2021</div>
+        <div class="tl-role"><h3>JW Marriott Surabaya</h3><div class="org">Marketing Communications Intern</div>
+        <p>First steps in international hospitality marketing — supporting comms, content, and on-property events for a flagship city hotel.</p></div>
+      </div>
+    </div>
   </div>
-  <div class="stat-item reveal reveal-delay-2">
-    <div class="stat-number">20<span class="accent">+</span></div>
-    <div class="stat-label">Campaigns Launched</div>
+</section>
+
+<!-- FEATURED WORK -->
+<section id="work" class="work">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow reveal">Featured</p>
+      <p class="num reveal">03 — Food &amp; Beverage Activations</p>
+      <h2 class="rt">The current chapter — Sheraton Bali Kuta Resort.</h2>
+    </div>
+    <div class="grid">
+      <figure class="card c-tall reveal"><img src="assets/fb2.webp" alt="Signature cocktails on the bar in warm light" loading="lazy" />
+        <figcaption class="meta"><h3>&amp;More by Sheraton</h3><p class="r">Bar programming &amp; signature serves</p></figcaption></figure>
+      <figure class="card c-wide reveal d1"><img src="assets/daily1.webp" alt="Guests at the Daily Social live buffet" loading="lazy" />
+        <figcaption class="meta"><h3>Sunday Social Brunch</h3><p class="r">Weekly flagship dining moment — concept, content &amp; promotion</p></figcaption></figure>
+      <figure class="card c-half reveal"><img src="assets/bene.webp" alt="Bene Italian Kitchen signature dish" loading="lazy" />
+        <figcaption class="meta"><h3>Bene Italian Kitchen</h3><p class="r">Tripadvisor Travelers' Choice · 2023–2025</p></figcaption></figure>
+      <figure class="card c-third reveal d1"><img src="assets/ramadan.webp" alt="Ramadan dining campaign" loading="lazy" />
+        <figcaption class="meta"><h3>Seasonal Series</h3><p class="r">Ramadan · Eid · Golden Soirée</p></figcaption></figure>
+      <figure class="card c-third reveal d2"><img src="assets/foodtruck.webp" alt="Food Truck Festival at Beachwalk" loading="lazy" />
+        <figcaption class="meta"><h3>Food Truck Festival</h3><p class="r">Cross-property with Aloft Bali Kuta · ×2</p></figcaption></figure>
+      <figure class="card c-half reveal"><img src="assets/sunset.webp" alt="Sunset Garden Festival" loading="lazy" />
+        <figcaption class="meta"><h3>Sunset Garden Festival</h3><p class="r">Open-air dining event · concept, content &amp; promotion</p></figcaption></figure>
+      <figure class="card c-half reveal d1"><img src="assets/easter.webp" alt="Easter Brunch at Sheraton Bali Kuta Resort" loading="lazy" />
+        <figcaption class="meta"><h3>Easter Brunch</h3><p class="r">Seasonal family dining · campaign &amp; social</p></figcaption></figure>
+    </div>
+    <div class="stats">
+      <div class="stat reveal"><div class="n"><span data-count="3">0</span>×</div><div class="l">Tripadvisor Travelers' Choice, consecutive</div></div>
+      <div class="stat reveal d1"><div class="n"><span data-count="6">0</span>+</div><div class="l">Press &amp; media placements</div></div>
+      <div class="stat reveal d2"><div class="n"><span data-count="2">0</span></div><div class="l">Cross-property festivals delivered</div></div>
+      <div class="stat reveal d3"><div class="n"><span data-count="12">0</span>+</div><div class="l">Dining brands &amp; seasonal campaigns</div></div>
+    </div>
   </div>
-  <div class="stat-item reveal reveal-delay-3">
-    <div class="stat-number">5<span class="accent">★</span></div>
-    <div class="stat-label">Hotel Brands</div>
+</section>
+
+<!-- PARALLAX DIVIDER -->
+<div class="divider">
+  <div class="pbg" id="pbg"><img src="assets/band.webp" alt="Bar detail in warm light" loading="lazy" /></div>
+  <div class="dtext">
+    <p class="k">The philosophy</p>
+    <p class="big rt">Restraint is the loudest thing in the room.</p>
   </div>
 </div>
 
-<!-- About Section -->
-<section class="section" id="about">
-  <div class="reveal">
-    <div class="section-label">Who I Am</div>
-    <h2 class="section-title">Marketing Meets<br>Hospitality Storytelling</h2>
-    <p class="section-subtitle">
-      Turning dining moments into brand experiences across Bali's top hospitality venues.
-    </p>
-  </div>
-  
-  <div class="about-grid">
-    <div class="about-image reveal">
-      <img src="https://i.postimg.cc/MZ4MwRCQ/IMG-4463.jpg" alt="Alvin Aurellius">
-    </div>
-    <div class="about-bio reveal reveal-delay-1">
-      <p>
-        I'm <strong>Alvin Aurellius</strong>, an Assistant F&B Marketing Manager at <strong>Sheraton Bali Kuta Resort</strong>, part of the Marriott International family. I manage the full marketing ecosystem for three distinct outlets: <strong>Daily Social Bali</strong>, <strong>Bene Italian Kitchen</strong>, and <strong>&more by Sheraton</strong>.
-      </p>
-      <p>
-        My work spans social media strategy, digital campaigns, press & PR, KOL collaborations, TripAdvisor management, digital ecosystems implementation, and event marketing — from intimate chef's table dinners to large-scale music festivals.
-      </p>
-      <p>
-        Outside the hotel, I'm building a content creator brand on Instagram <strong>(@alvn.rls)</strong>, creating Reels about office life, self-development, and the grind — for Gen Z Indonesians who want to grow their careers without losing themselves.
-      </p>
-      <p>
-        Graduate with a <strong>Bachelor's in Business Management</strong>, sharpening the strategic side of everything I do.
-      </p>
-      
-      <div class="skills-grid">
-        <span class="skill-tag">Social Media Marketing</span>
-        <span class="skill-tag">Digital Campaigns</span>
-        <span class="skill-tag">Event Marketing</span>
-        <span class="skill-tag">Press & PR</span>
-        <span class="skill-tag">KOL Management</span>
-        <span class="skill-tag">TripAdvisor</span>
-        <span class="skill-tag">Digital Ecosystems</span>
-        <span class="skill-tag">Canva</span>
-        <span class="skill-tag">Meta Business Suite</span>
-        <span class="skill-tag">Google Analytics</span>
-        <span class="skill-tag">Content Creation</span>
-        <span class="skill-tag">F&B Branding</span>
+<!-- RECOGNITION -->
+<section id="recognition" class="recog">
+  <div class="wrap">
+    <div class="sec-head"><p class="num reveal">04 — Recognition &amp; Press</p></div>
+    <div class="recog-grid">
+      <blockquote class="quote reveal"><span class="mark">“</span>Strong leadership and contribution in driving our outlet branding and marketing initiatives — delivering impactful results recognised not only internally but also by Chef Wayan from Home Kitchen.<span class="mark">”</span>
+        <div style="font-family:var(--sans);font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);margin-top:1.4rem;font-style:normal">WOW Story · “Leading with Impact” · Sheraton Bali Kuta Resort · April 2026</div>
+      </blockquote>
+      <div class="badges reveal d1">
+        <div class="badge"><b>APEC Rising Star — Finalist</b><span>Two consecutive years</span></div>
+        <div class="badge"><b>Tripadvisor Travelers' Choice</b><span>Bene Italian Kitchen · 2023–2025 three-peat</span></div>
+        <div class="badge"><b>Future Leader Program</b><span>Selected from 400 employees</span></div>
       </div>
     </div>
-  </div>
-
-  <!-- Timeline -->
-  <div class="timeline reveal">
-    <div class="timeline-item">
-      <div class="timeline-year">2024 — PRESENT</div>
-      <div class="timeline-role">Assistant F&B Marketing Manager</div>
-      <div class="timeline-company">Sheraton Bali Kuta Resort — Marriott International</div>
-    </div>
-    <div class="timeline-item">
-      <div class="timeline-year">2023 — 2024</div>
-      <div class="timeline-role">Assistant Digital Marketing Manager</div>
-      <div class="timeline-company">IHG Vignette Collection of Rumah Luwih Bali</div>
-    </div>
-    <div class="timeline-item">
-      <div class="timeline-year">2022 — 2023</div>
-      <div class="timeline-role">Cluster Marketing Communications Executive</div>
-      <div class="timeline-company">Tanly Hospitality</div>
-    </div>
-    <div class="timeline-item">
-      <div class="timeline-year">2021 — 2022</div>
-      <div class="timeline-role">Marketing Intern</div>
-      <div class="timeline-company">JW Marriott Surabaya</div>
+    <div class="press reveal d2">
+      <span class="lbl">As featured in</span>
+      <span class="p">PR Newswire</span><span class="p">NOW! Bali</span><span class="p">Hospitality Media</span><span class="p">Travel Trade</span>
     </div>
   </div>
 </section>
 
-<!-- Portfolio Section -->
-<section class="section" id="portfolio" style="background: var(--bg-card);">
-  <div class="reveal">
-    <div class="section-label">Selected Work</div>
-    <h2 class="section-title">Portfolio &<br>Case Studies</h2>
-    <p class="section-subtitle">
-      Campaigns, events, and brand activations I've led across Bali's hospitality scene.
-    </p>
+<!-- CREATIVE / PHOTOGRAPHY SLIDER -->
+<section id="creative" class="creative">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="num reveal">05 — Creative Portfolio</p>
+      <h2 class="rt">Photography &amp; videography, in-house.</h2>
+      <p class="lead reveal d1" style="margin-top:1rem">Shooting, directing, and editing across restaurants, lounges, and resorts — so the brand looks the way it should everywhere it appears. Drag, swipe, or use the arrows.</p>
+    </div>
+  </div>
+  <div class="slider reveal d1" id="slider">
+    <div class="track" id="track">
+      <figure class="slide" data-full="assets/hero.webp"><img src="assets/hero.webp" alt="Rooftop terrace at golden hour" loading="lazy" /><span class="expand">View</span><figcaption>Rooftop Terrace — golden hour</figcaption></figure>
+      <figure class="slide" data-full="assets/fb1.webp"><img src="assets/fb1.webp" alt="Signature serve being finished" loading="lazy" /><span class="expand">View</span><figcaption>&amp;More by Sheraton — signature serve</figcaption></figure>
+      <figure class="slide" data-full="assets/dessert.webp"><img src="assets/dessert.webp" alt="Plated dessert" loading="lazy" /><span class="expand">View</span><figcaption>Bene Italian Kitchen — plating</figcaption></figure>
+      <figure class="slide" data-full="assets/venue.webp"><img src="assets/venue.webp" alt="Dining room interior" loading="lazy" /><span class="expand">View</span><figcaption>Dining Room — interior direction</figcaption></figure>
+      <figure class="slide" data-full="assets/craft.webp"><img src="assets/craft.webp" alt="Cocktail feature, low light" loading="lazy" /><span class="expand">View</span><figcaption>Cruz Lounge — cocktail feature</figcaption></figure>
+      <figure class="slide" data-full="assets/fb3.webp"><img src="assets/fb3.webp" alt="Garnished cocktail detail" loading="lazy" /><span class="expand">View</span><figcaption>Bar Programming — detail</figcaption></figure>
+      <figure class="slide" data-full="assets/vasa.webp"><img src="assets/vasa.webp" alt="Hotel lounge interior" loading="lazy" /><span class="expand">View</span><figcaption>Vasa Hotel Surabaya — web &amp; brand</figcaption></figure>
+      <figure class="slide" data-full="assets/cleo.webp"><img src="assets/cleo.webp" alt="Hotel exterior" loading="lazy" /><span class="expand">View</span><figcaption>Cleo Hotels — property film</figcaption></figure>
+      <figure class="slide" data-full="assets/dstable.webp"><img src="assets/dstable.webp" alt="Guests sharing a spread at Daily Social" loading="lazy" /><span class="expand">View</span><figcaption>Daily Social — the shared table</figcaption></figure>
+      <figure class="slide" data-full="assets/daily1.webp"><img src="assets/daily1.webp" alt="Guests at the live seafood buffet" loading="lazy" /><span class="expand">View</span><figcaption>Sunday Social Brunch — live stations</figcaption></figure>
+      <figure class="slide" data-full="assets/dsseafood.webp"><img src="assets/dsseafood.webp" alt="Seafood buffet counter" loading="lazy" /><span class="expand">View</span><figcaption>Daily Social — seafood counter</figcaption></figure>
+      <figure class="slide" data-full="assets/dspool.webp"><img src="assets/dspool.webp" alt="Poolside dining room" loading="lazy" /><span class="expand">View</span><figcaption>Daily Social — poolside dining</figcaption></figure>
+      <figure class="slide" data-full="assets/bene.webp"><img src="assets/bene.webp" alt="Bene Italian Kitchen signature plate" loading="lazy" /><span class="expand">View</span><figcaption>Bene Italian Kitchen — signature plate</figcaption></figure>
+      <figure class="slide" data-full="assets/ramadan.webp"><img src="assets/ramadan.webp" alt="Ramadan seasonal campaign" loading="lazy" /><span class="expand">View</span><figcaption>Seasonal Series — Ramadan</figcaption></figure>
+      <figure class="slide" data-full="assets/foodtruck.webp"><img src="assets/foodtruck.webp" alt="Food Truck Festival at Beachwalk" loading="lazy" /><span class="expand">View</span><figcaption>Food Truck Festival — Beachwalk</figcaption></figure>
+      <figure class="slide" data-full="assets/team.webp"><img src="assets/team.webp" alt="On property with the team" loading="lazy" /><span class="expand">View</span><figcaption>On Property — the team</figcaption></figure>
+    </div>
+  </div>
+  <div class="s-ctrl">
+    <button class="s-btn" id="prev" aria-label="Previous slide">‹</button>
+    <button class="s-btn" id="next" aria-label="Next slide">›</button>
+    <span class="s-count"><b id="scur">01</b> / <span id="stot">09</span></span>
+    <div class="dots" id="dots"></div>
   </div>
 
-  <div class="portfolio-filters reveal">
-    <button class="filter-btn active">All</button>
-    <button class="filter-btn">Events</button>
-    <button class="filter-btn">Social Media</button>
-    <button class="filter-btn">Digital Marketing</button>
-    <button class="filter-btn">Press & PR</button>
-    <button class="filter-btn">Partnerships</button>
+  <div class="wrap" style="margin-top:clamp(3.5rem,7vw,6rem)">
+    <p class="subh reveal" style="color:var(--brass)">The reel — a moving gallery</p>
   </div>
+  <div class="show" id="show">
+    <div class="sl on"><img src="assets/hero.webp" alt="Rooftop terrace at golden hour" loading="lazy" /></div>
+    <div class="sl"><img src="assets/fb1.webp" alt="Signature serve" loading="lazy" /></div>
+    <div class="sl"><img src="assets/dessert.webp" alt="Plated dessert" loading="lazy" /></div>
+    <div class="sl"><img src="assets/brunch1.webp" alt="Sunday Social Brunch station" loading="lazy" /></div>
+    <div class="sl"><img src="assets/fb4.webp" alt="Cocktail in warm light" loading="lazy" /></div>
+    <div class="sl"><img src="assets/venue.webp" alt="Dining room interior" loading="lazy" /></div>
+    <div class="sl"><img src="assets/brunch2.webp" alt="Themed dessert display" loading="lazy" /></div>
+    <div class="cap">
+      <div class="t" id="showTitle">Rooftop Terrace</div>
+      <div class="s" id="showSub">Golden hour · resort</div>
+    </div>
+    <div class="sdots" id="showDots"></div>
+  </div>
+</section>
 
-  <div class="portfolio-grid">
-    <div class="project-card reveal">
-      <div class="project-cover">
-        <img src="https://i.postimg.cc/65WMRkHY/Bene-x-Amici.png" alt="Bene × Amici Culinary Takeover">
-        <div class="project-cover-overlay"></div>
-        <span class="project-cover-label">Featured</span>
-      </div>
-      <div class="project-body">
-        <div class="project-title">Bene × Amici Culinary Takeover</div>
-        <div class="project-desc">Two-day collaborative dining event bringing guest chefs to Bene Italian Kitchen. Full-stack marketing execution: press releases, KOL activations, media night coordination, event listing distribution, and social media campaign.</div>
-        <div class="project-meta">
-          <span class="project-tag">Events</span>
-          <span class="project-tag">Press & PR</span>
-          <span class="project-tag">KOL</span>
-          <span class="project-tag">April 2026</span>
-        </div>
-      </div>
+<!-- CASE STUDIES -->
+<section id="cases" style="background:var(--bg-2)">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="num reveal">06 — Digital &amp; Social Marketing</p>
+      <h2 class="rt">Social-led, data-proven.</h2>
+      <p class="lead reveal d1" style="margin-top:1rem">The full demand engine — from the reels that build desire to the paid, OTA, and search campaigns that convert it, all read back through analytics. A working command of the platforms hospitality actually runs on.</p>
     </div>
-    
-    <div class="project-card reveal reveal-delay-1">
-      <div class="project-cover">
-        <img src="https://i.postimg.cc/wBZrQwty/Shoot-4-scaled.jpg" alt="Sunset Garden Festival 2026">
-        <div class="project-cover-overlay"></div>
-      </div>
-      <div class="project-body">
-        <div class="project-title">Sunset Garden Festival 2026</div>
-        <div class="project-desc">Two-day music festival in Kuta featuring Dipha Barus and Cinta Laura. Led sponsorship deck creation, event marketing, and brand activation strategy for ~300 attendees.</div>
-        <div class="project-meta">
-          <span class="project-tag">Events</span>
-          <span class="project-tag">Sponsorship</span>
-        </div>
-      </div>
+    <p class="subh reveal">By the numbers · 2025</p>
+    <div class="impact">
+      <div class="i reveal"><div class="n">4.0<small>M</small></div><div class="l">Facebook views, 2025</div></div>
+      <div class="i reveal d1"><div class="n">208.5<small>K</small></div><div class="l">Instagram views, 2025</div></div>
+      <div class="i reveal d2"><div class="n">156.1<small>K</small></div><div class="l">Facebook link clicks · +139% YoY</div></div>
+      <div class="i reveal d3"><div class="n">127.6<small>K</small></div><div class="l">Peak organic reach · +115% YoY</div></div>
+      <div class="i reveal"><div class="n">+<span data-count="125">0</span><small>%</small></div><div class="l">Content interactions, YoY</div></div>
+      <div class="i reveal d1"><div class="n">+<span data-count="116">0</span><small>%</small></div><div class="l">Engagement rate, YoY</div></div>
+      <div class="i reveal d2"><div class="n">+<span data-count="295">0</span><small>%</small></div><div class="l">Facebook follower growth, YoY</div></div>
+      <div class="i reveal d3"><div class="n">+<span data-count="111">0</span><small>%</small></div><div class="l">Instagram profile visits, YoY</div></div>
     </div>
-    
-    <div class="project-card reveal reveal-delay-2">
-      <div class="project-cover">
-        <img src="https://i.postimg.cc/KY69M4VB/si-dpsks-daily-social-53603-16696.jpg" alt="Daily Social Sunday Brunch">
-        <div class="project-cover-overlay"></div>
-      </div>
-      <div class="project-body">
-        <div class="project-title">Daily Social — Sunday Social Brunch</div>
-        <div class="project-desc">Ongoing campaign positioning Daily Social Bali's signature Sunday brunch as the top brunch experience in Kuta. Social media, editorial press releases, and seasonal activations.</div>
-        <div class="project-meta">
-          <span class="project-tag">Social Media</span>
-          <span class="project-tag">Digital Marketing</span>
-        </div>
-      </div>
-    </div>
+    <p class="impact-cap reveal">Sheraton Bali Kuta Resort dining brands — Daily Social, Bene &amp; Feast — social performance, 2025 vs 2024. Measured in Meta Business Suite and Sprinklr. Earlier roles: +155% users (GA4) and +6.2% organic CTR (Search Console).</p>
 
-    <div class="project-card reveal reveal-delay-1">
-      <div class="project-cover">
-        <img src="https://i.postimg.cc/Dy3TTwwz/DSC08453.jpg" alt="Monkey 47 Bartender Championship">
-        <div class="project-cover-overlay"></div>
+    <p class="subh reveal" style="margin-top:clamp(2.5rem,5vw,4rem)">Platforms &amp; channels</p>
+    <div class="chgroups">
+      <div class="chgroup reveal">
+        <figure><img src="assets/ch-search.svg" alt="Paid search and Google Ads" loading="lazy" /></figure>
+        <h3>Paid Search &amp; Google</h3>
+        <div class="tags"><span class="tag">Google Ads</span><span class="tag">Paid Search</span><span class="tag">Performance Max</span><span class="tag">YouTube Ads</span></div>
       </div>
-      <div class="project-body">
-        <div class="project-title">Monkey 47 Bartender Championship</div>
-        <div class="project-desc">Marketing support for Gaku's cocktail entry in the 2026 Marriott APEC Sustainable Bartender Championship. Created Reels content, brand videos, and AI-generated visual assets.</div>
-        <div class="project-meta">
-          <span class="project-tag">Partnerships</span>
-          <span class="project-tag">Social Media</span>
-        </div>
+      <div class="chgroup reveal d1">
+        <figure><img src="assets/ch-social.svg" alt="Paid social channels" loading="lazy" /></figure>
+        <h3>Paid Social</h3>
+        <div class="tags"><span class="tag">Meta Ads</span><span class="tag">TikTok Ads</span><span class="tag">Instagram</span><span class="tag">Little Red Book (RED)</span><span class="tag">Creator / KOL</span></div>
       </div>
-    </div>
-
-    <div class="project-card reveal reveal-delay-2">
-      <div class="project-cover">
-        <img src="https://i.postimg.cc/CxZHsSbQ/Easter-2026-Sheraton-Bali-Kuta-Resort1.png" alt="Easter Afternoon Tea at &more by Sheraton">
-        <div class="project-cover-overlay"></div>
+      <div class="chgroup reveal d2">
+        <figure><img src="assets/ch-ota.svg" alt="OTA and travel media" loading="lazy" /></figure>
+        <h3>OTA &amp; Travel Media</h3>
+        <div class="tags"><span class="tag">Booking.com Sponsored Ads (BNSA)</span><span class="tag">Expedia TravelAds</span></div>
       </div>
-      <div class="project-body">
-        <div class="project-title">&more by Sheraton — Easter Afternoon Tea</div>
-        <div class="project-desc">Launch campaign for the Easter Afternoon Tea experience. Editorial press release, AI-assisted food photography, Instagram Reels content, and event listing distribution.</div>
-        <div class="project-meta">
-          <span class="project-tag">Press & PR</span>
-          <span class="project-tag">Digital Marketing</span>
-        </div>
+      <div class="chgroup reveal">
+        <figure><img src="assets/ch-wed.svg" alt="Weddings and MICE demand" loading="lazy" /></figure>
+        <h3>Weddings &amp; MICE Demand</h3>
+        <div class="tags"><span class="tag">Bridestory</span><span class="tag">Weddingku</span><span class="tag">My Overseas Wedding</span><span class="tag">Cvent</span></div>
+      </div>
+      <div class="chgroup reveal d1">
+        <figure><img src="assets/ch-crm.svg" alt="CRM, email and reservations" loading="lazy" /></figure>
+        <h3>CRM, Email &amp; Reservations</h3>
+        <div class="tags"><span class="tag">Marriott Email Marketing (LCB)</span><span class="tag">Mailchimp EDM</span><span class="tag">SevenRooms</span></div>
+      </div>
+      <div class="chgroup reveal d2">
+        <figure><img src="assets/ch-web.svg" alt="Web and martech" loading="lazy" /></figure>
+        <h3>Web &amp; Martech</h3>
+        <div class="tags"><span class="tag">OSB Outlet Sites (Marriott)</span><span class="tag">Multi-property CMS</span><span class="tag">SEMrush</span><span class="tag">GA4 · Search Console</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Creator Section -->
-<section class="section creator-section" id="creator">
-  <div class="reveal">
-    <div class="section-label">Content Creator</div>
-    <h2 class="section-title">@alvn.rls<br>on Instagram</h2>
-    <p class="section-subtitle">
-      Building a Gen Z self-development brand through Instagram Reels — office life, mindset shifts, and real talk about growing your career in Indonesia.
-    </p>
-  </div>
-
-  <div class="pillars-grid">
-    <div class="pillar-card reveal">
-      <span class="pillar-emoji">🏢</span>
-      <div class="pillar-name">Office Reality</div>
-      <div class="pillar-pct">30%</div>
-    </div>
-    <div class="pillar-card reveal reveal-delay-1">
-      <span class="pillar-emoji">🧠</span>
-      <div class="pillar-name">Mindset Shift</div>
-      <div class="pillar-pct">25%</div>
-    </div>
-    <div class="pillar-card reveal reveal-delay-2">
-      <span class="pillar-emoji">📈</span>
-      <div class="pillar-name">Growth & Skill Up</div>
-      <div class="pillar-pct">20%</div>
-    </div>
-    <div class="pillar-card reveal reveal-delay-3">
-      <span class="pillar-emoji">📖</span>
-      <div class="pillar-name">Story Time</div>
-      <div class="pillar-pct">15%</div>
-    </div>
-    <div class="pillar-card reveal reveal-delay-4">
-      <span class="pillar-emoji">😂</span>
-      <div class="pillar-name">Humor / Satire</div>
-      <div class="pillar-pct">10%</div>
-    </div>
-  </div>
-
-  <div style="text-align: center; margin-top: 48px;" class="reveal">
-    <a href="https://www.instagram.com/alvn.rls/" target="_blank" class="btn-primary">
-      Follow @alvn.rls
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"/></svg>
-    </a>
-  </div>
-</section>
-
-<!-- Services Section -->
-<section class="section" id="services">
-  <div class="reveal">
-    <div class="section-label">What I Offer</div>
-    <h2 class="section-title">F&B Marketing<br>Consultancy</h2>
-    <p class="section-subtitle">
-      Retainer-based digital marketing services tailored for five-star hotel F&B outlets in Bali. From strategy to execution.
-    </p>
-  </div>
-
-  <div class="services-grid">
-    <div class="service-card reveal">
-      <div class="service-icon">📱</div>
-      <div class="service-name">Social Media Management</div>
-      <div class="service-desc">Content strategy, calendar planning, Reels production, community management, and performance reporting across Instagram and Facebook.</div>
-    </div>
-    <div class="service-card reveal reveal-delay-1">
-      <div class="service-icon">📰</div>
-      <div class="service-name">Press & KOL Activation</div>
-      <div class="service-desc">Press release creation, media database management, KOL outreach, event hosting coordination, and editorial-style content placement.</div>
-    </div>
-    <div class="service-card reveal reveal-delay-2">
-      <div class="service-icon">📊</div>
-      <div class="service-name">Digital Performance</div>
-      <div class="service-desc">TripAdvisor optimization, Google Business profile management, SEO event listings, and analytics-driven campaign refinement.</div>
-    </div>
-    <div class="service-card reveal reveal-delay-1">
-      <div class="service-icon">🎯</div>
-      <div class="service-name">Campaign Strategy</div>
-      <div class="service-desc">End-to-end marketing campaign planning for seasonal promotions, culinary events, and brand launches — from brief to post-mortem.</div>
-    </div>
-    <div class="service-card reveal reveal-delay-2">
-      <div class="service-icon">🤝</div>
-      <div class="service-name">Partnership Development</div>
-      <div class="service-desc">Brand partnership identification, sponsorship deck creation, co-marketing activations, and cross-promotional event strategies.</div>
-    </div>
-    <div class="service-card reveal reveal-delay-3">
-      <div class="service-icon">⚙️</div>
-      <div class="service-name">Digital Ecosystems Setup</div>
-      <div class="service-desc">Full implementation and optimization of digital reservation systems, guest CRM, and automated marketing workflows for F&B outlets.</div>
-    </div>
-  </div>
-</section>
-
-<!-- Contact Section -->
-<section class="section contact-section" id="contact">
-  <div class="reveal">
-    <div class="section-label">Get in Touch</div>
-    <h2 class="section-title">Let's Create<br>Something Together</h2>
-    <p class="section-subtitle">
-      Whether it's a job opportunity, consultancy project, media collaboration, or just a conversation — I'd love to hear from you.
-    </p>
-  </div>
-
-  <div class="contact-grid">
-    <form class="contact-form reveal" onsubmit="handleSubmit(event)">
-      <div class="form-group">
-        <label>Your Name</label>
-        <input type="text" name="name" placeholder="John Doe" required>
+<!-- SKILLS -->
+<section id="skills" class="skills">
+  <div class="wrap twocol">
+    <div>
+      <p class="num reveal" style="margin-bottom:.6rem">07 — Skills</p>
+      <h2 class="serif rt" style="font-size:clamp(1.7rem,3.5vw,2.6rem);margin-bottom:1.4rem">What I bring.</h2>
+      <div class="tags reveal d1">
+        <span class="tag">Brand &amp; Content Strategy</span><span class="tag">F&amp;B Marketing</span>
+        <span class="tag">Creative Production</span><span class="tag">Photography</span>
+        <span class="tag">Videography &amp; Editing</span><span class="tag">Digital &amp; Performance</span>
+        <span class="tag">Advertising</span><span class="tag">Website / CMS</span>
+        <span class="tag">Public Relations</span><span class="tag">KOL &amp; Media Relations</span>
       </div>
-      <div class="form-group">
-        <label>Email</label>
-        <input type="email" name="email" placeholder="john@example.com" required>
-      </div>
-      <div class="form-group">
-        <label>Inquiry Type</label>
-        <select name="inquiry" required>
-          <option value="" disabled selected>Select one...</option>
-          <option>Hiring / Career Opportunity</option>
-          <option>Consultancy</option>
-          <option>Collaboration / Partnership</option>
-          <option>Media / Press</option>
-          <option>Other</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>Message</label>
-        <textarea name="message" placeholder="Tell me about your project or opportunity..." required></textarea>
-      </div>
-      <button type="submit" class="btn-primary" style="align-self:flex-start;">
-        Send Message
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
-      </button>
-    </form>
-
-    <div class="contact-info reveal reveal-delay-1">
-      <div class="contact-info-item">
-        <div class="contact-icon">📍</div>
-        <div>
-          <div class="contact-label">Location</div>
-          <div class="contact-value">Bali, Indonesia</div>
-        </div>
-      </div>
-      <div class="contact-info-item">
-        <div class="contact-icon">💼</div>
-        <div>
-          <div class="contact-label">Current Role</div>
-          <div class="contact-value">Asst. F&B Marketing Manager<br>Sheraton Bali Kuta Resort</div>
-        </div>
-      </div>
-      <div class="contact-info-item">
-        <div class="contact-icon">💬</div>
-        <div>
-          <div class="contact-label">LinkedIn</div>
-          <div class="contact-value"><a href="https://www.linkedin.com/in/alvin-aurellius-04a256202/" target="_blank">Alvin Aurellius</a></div>
-        </div>
-      </div>
-      <div class="contact-info-item">
-        <div class="contact-icon">📸</div>
-        <div>
-          <div class="contact-label">Instagram</div>
-          <div class="contact-value"><a href="https://www.instagram.com/alvn.rls/" target="_blank">@alvn.rls</a></div>
-        </div>
-      </div>
-      <div class="contact-info-item">
-        <div class="contact-icon">📧</div>
-        <div>
-          <div class="contact-label">Email</div>
-          <div class="contact-value"><a href="mailto:alvinaurelius13@gmail.com">alvinaurelius13@gmail.com</a></div>
-        </div>
+    </div>
+    <div class="reveal d1">
+      <p class="subh">Certifications</p>
+      <div class="tags">
+        <span class="tag">SEMrush</span><span class="tag">Google Analytics (GA4)</span>
+        <span class="tag">Advertising on Instagram</span><span class="tag">Dale Carnegie</span>
+        <span class="tag">Revinate</span><span class="tag">Google Digital Garage</span>
+        <span class="tag">HubSpot Academy</span><span class="tag">Purwadhika</span>
+        <span class="tag">Tech in Asia</span><span class="tag">Nestlé</span>
+        <span class="tag">RevoU</span><span class="tag">LinkedIn Learning</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Footer -->
-<footer>
-  <div class="footer-copy">&copy; 2026 Alvin Aurellius. Crafted in Bali.</div>
-  <div class="footer-socials">
-    <a href="https://www.linkedin.com/in/alvin-aurellius-04a256202/" target="_blank" class="social-link" title="LinkedIn">in</a>
-    <a href="https://www.instagram.com/alvn.rls/" target="_blank" class="social-link" title="Instagram">ig</a>
+<!-- EDUCATION -->
+<section id="education">
+  <div class="wrap">
+    <div class="sec-head"><p class="num reveal">08 — Education</p></div>
+    <div class="edu">
+      <div class="e reveal"><h3>Bina Nusantara University</h3><span>International Business Management</span></div>
+      <div class="e reveal d1"><h3>University of Merdeka Malang</h3><span>Hotel Administration</span></div>
+    </div>
   </div>
-</footer>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+  <div class="wrap">
+    <p class="eyebrow reveal">Let's talk</p>
+    <h2 class="rt">Have a brand worth remembering?</h2>
+    <p class="avail reveal d1">Open to marketing &amp; digital roles across resorts, restaurants, and lifestyle hospitality — on-property in Bali or beyond. References &amp; recommendations available on request.</p>
+    <a class="mail reveal d2" href="mailto:alvinaurelius13@gmail.com">alvinaurelius13@gmail.com</a>
+    <div class="cbtns reveal d3">
+      <a class="cbtn" href="https://www.linkedin.com/in/alvin-aurellius/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="cbtn" href="https://www.instagram.com/alvn.rls/" target="_blank" rel="noopener">Instagram</a>
+      <a class="cbtn" href="assets/Alvin_Aurellius_CV.pdf" target="_blank" rel="noopener">Download CV</a>
+    </div>
+    <p class="loc reveal">Bali, Indonesia · Available worldwide</p>
+  </div>
+</section>
+<footer>© <span id="yr"></span> Alvin Aurellius · Crafted in Bali</footer>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb">
+  <button class="x" id="lbx" aria-label="Close">×</button>
+  <button class="nav prev" id="lbp" aria-label="Previous">‹</button>
+  <img id="lbimg" src="" alt="" />
+  <figcaption id="lbcap"></figcaption>
+  <button class="nav next" id="lbn" aria-label="Next">›</button>
+</div>
 
 <script>
-// ─── Cursor Glow ───
-const glow = document.getElementById('cursorGlow');
-let mouseX = 0, mouseY = 0, glowX = 0, glowY = 0;
+document.getElementById('yr').textContent=new Date().getFullYear();
+const reduce=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
 
-document.addEventListener('mousemove', (e) => {
-  mouseX = e.clientX;
-  mouseY = e.clientY;
+/* split headings into word masks */
+document.querySelectorAll('.rt').forEach(el=>{
+  const words=el.textContent.trim().split(/\s+/);
+  el.innerHTML=words.map(w=>'<span class="w"><span>'+w+'</span></span>').join(' ');
+  [...el.querySelectorAll('.w>span')].forEach((s,i)=>s.style.transitionDelay=(i*0.06)+'s');
 });
 
-function animateGlow() {
-  glowX += (mouseX - glowX) * 0.08;
-  glowY += (mouseY - glowY) * 0.08;
-  glow.style.left = glowX + 'px';
-  glow.style.top = glowY + 'px';
-  requestAnimationFrame(animateGlow);
+/* hero intro */
+requestAnimationFrame(()=>{document.querySelector('.hero').classList.add('in');document.getElementById('heroTitle').classList.add('in');});
+
+/* nav + progress + parallax */
+const nav=document.getElementById('nav'),prog=document.getElementById('progress');
+const links=[...document.querySelectorAll('.navlinks a')];
+const secs=links.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
+const heroMedia=document.getElementById('heroMedia'),pbg=document.getElementById('pbg');
+function onScroll(){
+  const y=window.scrollY,h=document.documentElement.scrollHeight-innerHeight;
+  prog.style.width=(y/h*100)+'%';
+  nav.classList.toggle('solid',y>innerHeight*0.72);
+  let cur=secs[0];for(const s of secs){if(s.getBoundingClientRect().top<=innerHeight*0.35)cur=s;}
+  links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+(cur&&cur.id)));
+  if(!reduce){
+    if(y<innerHeight)heroMedia.style.transform='translateY('+(y*0.35)+'px)';
+    const r=pbg.parentElement.getBoundingClientRect();
+    if(r.top<innerHeight&&r.bottom>0){const off=(r.top-innerHeight/2)/innerHeight;pbg.style.transform='translateY('+(off*40)+'px)';}
+  }
 }
-animateGlow();
+window.addEventListener('scroll',onScroll,{passive:true});onScroll();
 
-// Hide glow on mobile
-if (window.innerWidth < 768) glow.style.display = 'none';
+/* mobile menu */
+const tgl=document.getElementById('navtoggle'),nl=document.getElementById('navlinks');
+tgl.addEventListener('click',()=>{const o=nl.classList.toggle('open');tgl.textContent=o?'×':'☰';});
+nl.addEventListener('click',e=>{if(e.target.tagName==='A'){nl.classList.remove('open');tgl.textContent='☰';}});
 
-// ─── Scroll Reveal ───
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
-  });
-}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+/* reveal */
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:0.12,rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('.reveal,.clip,.rt').forEach(el=>{if(el.id==='heroTitle')return;reduce?el.classList.add('in'):io.observe(el);});
 
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+/* counters */
+function animCount(el){const dec=+el.dataset.dec||0,target=parseFloat(el.dataset.count);let s=null,dur=1600;
+  if(reduce){el.textContent=dec?target.toFixed(dec):target;return;}
+  function step(t){if(!s)s=t;const p=Math.min((t-s)/dur,1),e=1-Math.pow(1-p,3),v=target*e;
+    el.textContent=dec?v.toFixed(dec):Math.round(v);if(p<1)requestAnimationFrame(step);}requestAnimationFrame(step);}
+const cio=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){animCount(e.target);cio.unobserve(e.target);}})},{threshold:0.6});
+document.querySelectorAll('[data-count]').forEach(el=>cio.observe(el));
 
-// ─── Nav Scroll ───
-const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-  navbar.classList.toggle('scrolled', window.scrollY > 60);
+/* ===== PHOTOGRAPHY SLIDER ===== */
+const track=document.getElementById('track'),slides=[...track.children];
+const dotsWrap=document.getElementById('dots');let idx=0,auto=null;
+document.getElementById('stot').textContent=String(slides.length).padStart(2,'0');
+slides.forEach((s,i)=>{const b=document.createElement('button');b.className='dot';b.setAttribute('aria-label','Slide '+(i+1));b.addEventListener('click',()=>go(i));dotsWrap.appendChild(b);});
+const dots=[...dotsWrap.children];
+function layout(){
+  const active=slides[idx];
+  const cw=track.parentElement.getBoundingClientRect().width;
+  const off=cw/2-(active.offsetLeft+active.offsetWidth/2);
+  track.style.transform='translateX('+off+'px)';
+  slides.forEach((s,i)=>s.classList.toggle('active',i===idx));
+  dots.forEach((d,i)=>d.classList.toggle('on',i===idx));
+  document.getElementById('scur').textContent=String(idx+1).padStart(2,'0');
+}
+function go(i){idx=Math.max(0,Math.min(slides.length-1,i));layout();restart();}
+document.getElementById('next').addEventListener('click',()=>go(idx+1));
+document.getElementById('prev').addEventListener('click',()=>go(idx-1));
+window.addEventListener('resize',layout);
+window.addEventListener('load',layout);setTimeout(layout,300);
+
+/* drag / swipe */
+let sx=0,base=0,drag=false,moved=false;
+function px(e){return e.touches&&e.touches[0]?e.touches[0].clientX:e.clientX;}
+function curX(){const m=/translateX\(([-0-9.]+)px\)/.exec(track.style.transform);return m?+m[1]:0;}
+function down(e){drag=true;moved=false;sx=px(e);base=curX();track.classList.add('drag');stopAuto();}
+function move(e){if(!drag)return;const dx=px(e)-sx;if(Math.abs(dx)>4)moved=true;track.style.transform='translateX('+(base+dx)+'px)';}
+function up(e){if(!drag)return;drag=false;track.classList.remove('drag');
+  const endX=(e.changedTouches&&e.changedTouches[0])?e.changedTouches[0].clientX:(e.clientX||sx);const d=endX-sx;
+  if(d<-60)go(idx+1);else if(d>60)go(idx-1);else layout();restart();}
+track.addEventListener('mousedown',down);window.addEventListener('mousemove',move);window.addEventListener('mouseup',up);
+track.addEventListener('touchstart',down,{passive:true});track.addEventListener('touchmove',move,{passive:true});track.addEventListener('touchend',up);
+
+/* autoplay */
+function startAuto(){if(reduce||auto)return;auto=setInterval(()=>go((idx+1)%slides.length),5200);}
+function stopAuto(){clearInterval(auto);auto=null;}
+function restart(){stopAuto();startAuto();}
+const slider=document.getElementById('slider');let hover=false;
+slider.addEventListener('mouseenter',()=>{hover=true;stopAuto();});
+slider.addEventListener('mouseleave',()=>{hover=false;startAuto();});
+startAuto();
+
+/* ===== LIGHTBOX ===== */
+const lb=document.getElementById('lb'),lbimg=document.getElementById('lbimg'),lbcap=document.getElementById('lbcap');let lbi=0;
+function lbShow(i){lbi=(i+slides.length)%slides.length;lbimg.src=slides[lbi].dataset.full;lbimg.alt=slides[lbi].querySelector('img').alt;lbcap.textContent=slides[lbi].querySelector('figcaption').textContent;}
+slides.forEach((s,i)=>{
+  s.querySelector('.expand').addEventListener('click',ev=>{ev.stopPropagation();lbShow(i);lb.classList.add('on');stopAuto();});
+  s.addEventListener('click',()=>{if(moved)return;if(i===idx){lbShow(i);lb.classList.add('on');stopAuto();}else go(i);});
+});
+document.getElementById('lbx').onclick=()=>{lb.classList.remove('on');if(!hover)startAuto();};
+document.getElementById('lbn').onclick=()=>lbShow(lbi+1);
+document.getElementById('lbp').onclick=()=>lbShow(lbi-1);
+lb.addEventListener('click',e=>{if(e.target===lb){lb.classList.remove('on');if(!hover)startAuto();}});
+document.addEventListener('keydown',e=>{
+  if(lb.classList.contains('on')){if(e.key==='Escape'){lb.classList.remove('on');startAuto();}if(e.key==='ArrowRight')lbShow(lbi+1);if(e.key==='ArrowLeft')lbShow(lbi-1);return;}
+  if(hover){if(e.key==='ArrowRight')go(idx+1);if(e.key==='ArrowLeft')go(idx-1);}
 });
 
-// ─── Mobile Menu ───
-function toggleMenu() {
-  const links = document.getElementById('navLinks');
-  const toggle = document.getElementById('menuToggle');
-  links.classList.toggle('mobile-open');
-  toggle.classList.toggle('active');
-}
-
-function closeMenu() {
-  document.getElementById('navLinks').classList.remove('mobile-open');
-  document.getElementById('menuToggle').classList.remove('active');
-}
-
-// ─── Filter Buttons ───
-document.querySelectorAll('.filter-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelector('.filter-btn.active').classList.remove('active');
-    btn.classList.add('active');
-  });
-});
-
-// ─── Form Submit ───
-function handleSubmit(e) {
-  e.preventDefault();
-  const form = e.target;
-  const btn = form.querySelector('button[type="submit"]');
-  const data = new FormData(form);
-  btn.disabled = true;
-  btn.innerHTML = 'Sending...';
-
-  fetch('https://formspree.io/f/mdaprgqj', {
-    method: 'POST',
-    body: data,
-    headers: { 'Accept': 'application/json' }
-  }).then(response => {
-    if (response.ok) {
-      btn.innerHTML = 'Message Sent! ✓';
-      btn.style.background = '#2d6a4f';
-      form.reset();
-    } else {
-      btn.innerHTML = 'Something went wrong';
-      btn.style.background = '#a33';
-    }
-    btn.disabled = false;
-    setTimeout(() => {
-      btn.innerHTML = 'Send Message <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>';
-      btn.style.background = '';
-    }, 3000);
-  }).catch(() => {
-    btn.innerHTML = 'Network error';
-    btn.style.background = '#a33';
-    btn.disabled = false;
-    setTimeout(() => {
-      btn.innerHTML = 'Send Message <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>';
-      btn.style.background = '';
-    }, 3000);
-  });
-}
-
-// ─── Counter Animation ───
-const counters = document.querySelectorAll('.stat-number');
-const counterObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const el = entry.target;
-      const text = el.textContent;
-      const match = text.match(/(\d+)/);
-      if (match) {
-        const target = parseInt(match[0]);
-        let current = 0;
-        const duration = 1500;
-        const step = target / (duration / 16);
-        const suffix = text.replace(match[0], '');
-        
-        function updateCounter() {
-          current += step;
-          if (current >= target) {
-            current = target;
-            el.innerHTML = el.dataset.original || el.innerHTML;
-            return;
-          }
-          const accent = el.querySelector('.accent');
-          const accentHTML = accent ? accent.outerHTML : '';
-          el.innerHTML = Math.floor(current) + accentHTML;
-          requestAnimationFrame(updateCounter);
-        }
-        updateCounter();
-      }
-      counterObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.1 });
-
-counters.forEach(el => {
-  el.dataset.original = el.innerHTML;
-  counterObserver.observe(el);
-});
-
+/* ===== FADE SLIDESHOW ===== */
+(function(){
+  const show=document.getElementById('show');if(!show)return;
+  const sls=[...show.querySelectorAll('.sl')];
+  const caps=[
+    ['Rooftop Terrace','Golden hour · resort'],
+    ['&More by Sheraton','Signature serve · social content'],
+    ['Bene Italian Kitchen','Plating · food styling'],
+    ['Sunday Social Brunch','Live station · themed edition'],
+    ['Seasonal Bar','Cocktail programming'],
+    ['Dining Room','Interior direction'],
+    ['Sunday Social Brunch','Dessert display · social feature']
+  ];
+  const dwrap=document.getElementById('showDots');
+  const t=document.getElementById('showTitle'),s=document.getElementById('showSub');
+  let i=0,timer=null;
+  sls.forEach((_,n)=>{const b=document.createElement('button');b.setAttribute('aria-label','Photo '+(n+1));b.addEventListener('click',()=>{set(n);restart();});dwrap.appendChild(b);});
+  const dts=[...dwrap.children];
+  function set(n){i=(n+sls.length)%sls.length;sls.forEach((el,k)=>el.classList.toggle('on',k===i));dts.forEach((d,k)=>d.classList.toggle('on',k===i));if(caps[i]){t.textContent=caps[i][0];s.textContent=caps[i][1];}}
+  function start(){if(reduce||timer)return;timer=setInterval(()=>set(i+1),4200);}
+  function stop(){clearInterval(timer);timer=null;}
+  function restart(){stop();start();}
+  set(0);
+  const sio=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting?start():stop()),{threshold:0.25});
+  sio.observe(show);
+  show.addEventListener('mouseenter',stop);show.addEventListener('mouseleave',start);
+})();
 </script>
 </body>
 </html>
